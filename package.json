@@ -1,0 +1,36 @@
+{
+  "name": "epacat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema EPACAT — catastro de usuarios y medidores (Manabí, Ecuador)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel --filter=@epacat/api --filter=@epacat/web",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "db:generate": "turbo run db:generate",
+    "db:migrate": "npm run db:migrate -w @epacat/database",
+    "db:seed": "npm run db:seed -w @epacat/database",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "turbo": "^2.9.14",
+    "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@10.9.0"
+}

@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: epacat-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: epacat
+      POSTGRES_PASSWORD: epacat_dev
+      POSTGRES_DB: epacat_db
+    volumes:
+      - epacat_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U epacat -d epacat_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  epacat_pgdata:

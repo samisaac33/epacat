@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  TECHNICIAN
+  MANAGER
+  ADMIN
+}
+
+enum SyncBatchStatus {
+  PENDING
+  PROCESSED
+  FAILED
+}
+
+enum SyncOpType {
+  CREATE
+  UPDATE
+}
+
+enum SyncEntity {
+  ABONADO
+  MEDIDOR
+  VISITA
+  LECTURA
+}
+
+enum ValidationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum VisitaStatus {
+  DRAFT
+  SYNCED
+  VALIDATED
+  REJECTED
+}
+
+enum FotoTipo {
+  MEDIDOR
+  FACHADA
+  LECTURA
+}
+
+enum EpacomJobStatus {
+  PENDING
+  DONE
+  FAILED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  nombre       String
+  role         Role     @default(TECHNICIAN)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  visitas VisitaCampo[]
+  batches SyncBatch[]
+}
+
+model Abonado {
+  id        String   @id @default(cuid())
+  clientId  String   @unique
+  cedula    String   @unique
+  nombre    String
+  direccion String
+  sector    String
+  telefono  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  medidores Medidor[]
+  visitas   VisitaCampo[]
+}
+
+model Medidor {
+  id          String   @id @default(cuid())
+  clientId    String   @unique
+  numeroSerie String   @unique
+  marca       String
+  ubicacion   String?
+  abonadoId   String
+  abonado     Abonado  @relation(fields: [abonadoId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  lecturas Lectura[]
+  visitas  VisitaCampo[]
+}
+
+model VisitaCampo {
+  id            String       @id @default(cuid())
+  clientId      String       @unique
+  lat           Float
+  lng           Float
+  observaciones String?
+  status        VisitaStatus @default(DRAFT)
+  tecnicoId     String
+  tecnico       User         @relation(fields: [tecnicoId], references: [id])
+  abonadoId     String?
+  abonado       Abonado?     @relation(fields: [abonadoId], references: [id])
+  medidorId     String?
+  medidor       Medidor?     @relation(fields: [medidorId], references: [id])
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  fotos       Foto[]
+  lecturas    Lectura[]
+  validacion  Validacion?
+}
+
+model Lectura {
+  id        String   @id @default(cuid())
+  clientId  String   @unique
+  valor     Float
+  fecha     DateTime
+  medidorId String
+  medidor   Medidor  @relation(fields: [medidorId], references: [id])
+  visitaId  String?
+  visita    VisitaCampo? @relation(fields: [visitaId], references: [id])
+  fotoId    String?
+  foto      Foto?    @relation(fields: [fotoId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Foto {
+  id          String    @id @default(cuid())
+  localPhotoId String?  @unique
+  path        String
+  tipo        FotoTipo
+  visitaId    String
+  visita      VisitaCampo @relation(fields: [visitaId], references: [id], onDelete: Cascade)
+  lecturas    Lectura[]
+  createdAt   DateTime  @default(now())
+}
+
+model SyncBatch {
+  id            String          @id @default(cuid())
+  clientBatchId String          @unique
+  deviceId      String
+  status        SyncBatchStatus @default(PENDING)
+  resultJson    Json?
+  tecnicoId     String
+  tecnico       User            @relation(fields: [tecnicoId], references: [id])
+  operations    SyncOperation[]
+  createdAt     DateTime        @default(now())
+  processedAt   DateTime?
+}
+
+model SyncOperation {
+  id             String     @id @default(cuid())
+  opId           String
+  type           SyncOpType
+  entity         SyncEntity
+  clientEntityId String
+  payload        Json
+  batchId        String
+  batch          SyncBatch  @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  success        Boolean    @default(false)
+  errorMessage   String?
+}
+
+model Validacion {
+  id         String           @id @default(cuid())
+  status     ValidationStatus @default(PENDING)
+  comentario String?
+  visitaId   String           @unique
+  visita     VisitaCampo      @relation(fields: [visitaId], references: [id])
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+}
+
+model EpacomExportJob {
+  id        String          @id @default(cuid())
+  visitaId  String
+  status    EpacomJobStatus @default(PENDING)
+  outputPath String?
+  error     String?
+  createdAt DateTime        @default(now())
+  processedAt DateTime?
+}
