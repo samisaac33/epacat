@@ -6,6 +6,7 @@ import { clearToken } from '@/lib/api';
 
 const links = [
   { href: '/validation', label: 'Validación' },
+  { href: '/facturacion', label: 'Facturación' },
   { href: '/map', label: 'Mapa GIS' },
   { href: '/catastro', label: 'Catastro' },
 ];
@@ -17,7 +18,7 @@ export function DashboardNav() {
   return (
     <nav className="bg-sky-900 text-white px-6 py-3 flex items-center justify-between">
       <div className="flex items-center gap-6">
-        <span className="font-bold text-lg">EPACAT</span>
+        <span className="font-bold text-lg">EPIM</span>
         {links.map((l) => (
           <Link
             key={l.href}

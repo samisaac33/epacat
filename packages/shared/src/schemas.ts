@@ -20,6 +20,8 @@ export const abonadoInputSchema = z.object({
   direccion: z.string().min(3).max(500),
   sector: z.string().min(1).max(100),
   telefono: z.string().optional(),
+  email: z.string().email().optional(),
+  ruc: z.string().min(10).max(20).optional(),
 });
 
 export const medidorInputSchema = z.object({
@@ -33,6 +35,7 @@ export const medidorInputSchema = z.object({
 export const lecturaInputSchema = z.object({
   clientId: z.string().uuid(),
   medidorClientId: z.string().uuid(),
+  visitaClientId: z.string().uuid().optional(),
   valor: z.number().nonnegative(),
   fecha: z.string().datetime(),
   fotoLocalId: z.string().uuid().optional(),
@@ -67,6 +70,33 @@ export const validationDecisionSchema = z.object({
   comentario: z.string().max(500).optional(),
 });
 
+export const registrarPagoSchema = z.object({
+  monto: z.number().positive(),
+  metodo: z.enum(['EFECTIVO', 'TRANSFERENCIA', 'OTRO']),
+  referencia: z.string().max(200).optional(),
+  fecha: z.string().datetime().optional(),
+});
+
+export const recaudacionPagoSchema = z.object({
+  transaccionId: z.string().min(1).max(100),
+  identificacion: z.string().min(5).max(20),
+  referencia: z.string().min(1).max(50),
+  monto: z.number().positive(),
+  canal: z.enum(['VENTANILLA', 'BANCA_WEB', 'BANCA_MOVIL']),
+  fechaPago: z.string().datetime().optional(),
+});
+
+export const recaudacionReversoSchema = z.object({
+  transaccionId: z.string().min(1).max(100),
+  motivo: z.string().max(500).optional(),
+});
+
+export const tarifaInputSchema = z.object({
+  nombre: z.string().min(1).max(100),
+  cargoFijo: z.number().nonnegative(),
+  precioM3: z.number().nonnegative(),
+});
+
 export const photoUploadMetaSchema = z.object({
   localPhotoId: z.string().uuid(),
   visitaClientId: z.string().uuid().optional(),
@@ -88,6 +118,10 @@ export type VisitaCampoInput = z.infer<typeof visitaCampoInputSchema>;
 export type SyncOperation = z.infer<typeof syncOperationSchema>;
 export type SyncBatchInput = z.infer<typeof syncBatchInputSchema>;
 export type ValidationDecision = z.infer<typeof validationDecisionSchema>;
+export type RegistrarPagoInput = z.infer<typeof registrarPagoSchema>;
+export type RecaudacionPagoInput = z.infer<typeof recaudacionPagoSchema>;
+export type RecaudacionReversoInput = z.infer<typeof recaudacionReversoSchema>;
+export type TarifaInput = z.infer<typeof tarifaInputSchema>;
 
 export interface SyncBatchResult {
   clientBatchId: string;

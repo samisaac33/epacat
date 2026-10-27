@@ -3,7 +3,7 @@ import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 
-describe('EPACAT API (e2e)', () => {
+describe('EPIM API (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
@@ -20,6 +20,6 @@ describe('EPACAT API (e2e)', () => {
   });
 
   it('/health (GET)', () => {
-    return request(app.getHttpServer()).get('/health').expect(200).expect({ status: 'ok', service: 'epacat-api' });
+    return request(app.getHttpServer()).get('/health').expect(200).expect({ status: 'ok', service: 'epim-api' });
   });
 });

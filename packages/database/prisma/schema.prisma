@@ -50,9 +50,49 @@ enum FotoTipo {
   LECTURA
 }
 
-enum EpacomJobStatus {
-  PENDING
-  DONE
+enum PeriodoStatus {
+  ABIERTO
+  CERRADO
+}
+
+enum FacturaStatus {
+  EMITIDA
+  PAGADA
+  VENCIDA
+  ANULADA
+}
+
+enum MetodoPago {
+  EFECTIVO
+  TRANSFERENCIA
+  OTRO
+  PACIFICO_VENTANILLA
+  PACIFICO_BANCA_WEB
+  PACIFICO_BANCA_MOVIL
+}
+
+enum PagoOrigen {
+  MANUAL
+  BANCO_PACIFICO
+}
+
+enum PagoCanal {
+  VENTANILLA
+  BANCA_WEB
+  BANCA_MOVIL
+  MANUAL
+}
+
+enum CobranzaEmailTipo {
+  FACTURA_EMITIDA
+  RECORDATORIO
+  COMPROBANTE_PAGO
+  VENCIMIENTO
+}
+
+enum CobranzaEmailStatus {
+  SENT
+  STUB
   FAILED
 }
 
@@ -65,23 +105,29 @@ model User {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  visitas VisitaCampo[]
-  batches SyncBatch[]
+  visitas          VisitaCampo[]
+  batches          SyncBatch[]
+  periodosCerrados PeriodoFacturacion[]
+  pagosRegistrados Pago[]
 }
 
 model Abonado {
   id        String   @id @default(cuid())
   clientId  String   @unique
   cedula    String   @unique
+  ruc       String?  @unique
   nombre    String
   direccion String
   sector    String
   telefono  String?
+  email     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  medidores Medidor[]
-  visitas   VisitaCampo[]
+  medidores       Medidor[]
+  visitas         VisitaCampo[]
+  facturas        Factura[]
+  cobranzaEmails  CobranzaEmail[]
 }
 
 model Medidor {
@@ -95,8 +141,9 @@ model Medidor {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  lecturas Lectura[]
-  visitas  VisitaCampo[]
+  lecturas      Lectura[]
+  visitas       VisitaCampo[]
+  facturaLineas FacturaLinea[]
 }
 
 model VisitaCampo {
@@ -115,34 +162,37 @@ model VisitaCampo {
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
 
-  fotos       Foto[]
-  lecturas    Lectura[]
-  validacion  Validacion?
+  fotos      Foto[]
+  lecturas   Lectura[]
+  validacion Validacion?
 }
 
 model Lectura {
-  id        String   @id @default(cuid())
-  clientId  String   @unique
+  id        String       @id @default(cuid())
+  clientId  String       @unique
   valor     Float
   fecha     DateTime
   medidorId String
-  medidor   Medidor  @relation(fields: [medidorId], references: [id])
+  medidor   Medidor      @relation(fields: [medidorId], references: [id])
   visitaId  String?
   visita    VisitaCampo? @relation(fields: [visitaId], references: [id])
   fotoId    String?
-  foto      Foto?    @relation(fields: [fotoId], references: [id])
-  createdAt DateTime @default(now())
+  foto      Foto?        @relation(fields: [fotoId], references: [id])
+  createdAt DateTime     @default(now())
+
+  facturaLineaActual   FacturaLinea?  @relation("LecturaActual")
+  facturaLineaAnterior FacturaLinea[] @relation("LecturaAnterior")
 }
 
 model Foto {
-  id          String    @id @default(cuid())
-  localPhotoId String?  @unique
-  path        String
-  tipo        FotoTipo
-  visitaId    String
-  visita      VisitaCampo @relation(fields: [visitaId], references: [id], onDelete: Cascade)
-  lecturas    Lectura[]
-  createdAt   DateTime  @default(now())
+  id           String      @id @default(cuid())
+  localPhotoId String?     @unique
+  path         String
+  tipo         FotoTipo
+  visitaId     String
+  visita       VisitaCampo @relation(fields: [visitaId], references: [id], onDelete: Cascade)
+  lecturas     Lectura[]
+  createdAt    DateTime    @default(now())
 }
 
 model SyncBatch {
@@ -181,12 +231,97 @@ model Validacion {
   updatedAt  DateTime         @updatedAt
 }
 
-model EpacomExportJob {
-  id        String          @id @default(cuid())
-  visitaId  String
-  status    EpacomJobStatus @default(PENDING)
-  outputPath String?
+model Tarifa {
+  id           String   @id @default(cuid())
+  nombre       String
+  cargoFijo    Float
+  precioM3     Float
+  vigenteDesde DateTime @default(now())
+  activa       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PeriodoFacturacion {
+  id           String        @id @default(cuid())
+  anio         Int
+  mes          Int
+  status       PeriodoStatus @default(ABIERTO)
+  fechaInicio  DateTime
+  fechaFin     DateTime
+  cerradoAt    DateTime?
+  cerradoPorId String?
+  cerradoPor   User?         @relation(fields: [cerradoPorId], references: [id])
+  createdAt    DateTime      @default(now())
+
+  facturas Factura[]
+
+  @@unique([anio, mes])
+}
+
+model Factura {
+  id               String             @id @default(cuid())
+  numero           String             @unique
+  abonadoId        String
+  abonado          Abonado            @relation(fields: [abonadoId], references: [id])
+  periodoId        String
+  periodo          PeriodoFacturacion @relation(fields: [periodoId], references: [id])
+  subtotal         Float
+  cargoFijo        Float
+  total            Float
+  status           FacturaStatus      @default(EMITIDA)
+  fechaEmision     DateTime           @default(now())
+  fechaVencimiento DateTime
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+
+  lineas         FacturaLinea[]
+  pagos          Pago[]
+  cobranzaEmails CobranzaEmail[]
+}
+
+model FacturaLinea {
+  id                String   @id @default(cuid())
+  facturaId         String
+  factura           Factura  @relation(fields: [facturaId], references: [id], onDelete: Cascade)
+  medidorId         String
+  medidor           Medidor  @relation(fields: [medidorId], references: [id])
+  lecturaAnteriorId String?
+  lecturaAnterior   Lectura? @relation("LecturaAnterior", fields: [lecturaAnteriorId], references: [id])
+  lecturaActualId   String   @unique
+  lecturaActual     Lectura  @relation("LecturaActual", fields: [lecturaActualId], references: [id])
+  consumo           Float
+  precioM3          Float
+  monto             Float
+}
+
+model Pago {
+  id                 String      @id @default(cuid())
+  facturaId          String
+  factura            Factura     @relation(fields: [facturaId], references: [id], onDelete: Cascade)
+  monto              Float
+  metodo             MetodoPago
+  origen             PagoOrigen  @default(MANUAL)
+  canal              PagoCanal?
+  transaccionBancoId String?     @unique
+  referencia         String?
+  revertido          Boolean     @default(false)
+  fecha              DateTime    @default(now())
+  registradoPorId    String?
+  registradoPor      User?       @relation(fields: [registradoPorId], references: [id])
+  createdAt          DateTime    @default(now())
+}
+
+model CobranzaEmail {
+  id        String              @id @default(cuid())
+  facturaId String?
+  factura   Factura?            @relation(fields: [facturaId], references: [id], onDelete: SetNull)
+  abonadoId String
+  abonado   Abonado             @relation(fields: [abonadoId], references: [id])
+  tipo      CobranzaEmailTipo
+  destino   String
+  resendId  String?
+  status    CobranzaEmailStatus
   error     String?
-  createdAt DateTime        @default(now())
-  processedAt DateTime?
+  createdAt DateTime            @default(now())
 }

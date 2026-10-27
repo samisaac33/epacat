@@ -24,7 +24,7 @@ describe('Sync idempotency (e2e)', () => {
 
     const login = await request(app.getHttpServer())
       .post('/auth/login')
-      .send({ email: 'tecnico1@epacat.gob.ec', password: 'epacat123' });
+      .send({ email: 'tecnico1@epim.gob.ec', password: 'epim123' });
     token = login.body.accessToken;
   });
 

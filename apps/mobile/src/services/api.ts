@@ -1,7 +1,7 @@
 import * as SecureStore from 'expo-secure-store';
 import { API_URL } from '../config';
 
-const TOKEN_KEY = 'epacat_token';
+const TOKEN_KEY = 'epim_token';
 
 export async function getToken() {
   return SecureStore.getItemAsync(TOKEN_KEY);

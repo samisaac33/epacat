@@ -7,8 +7,8 @@ import { apiFetch, setToken } from '@/lib/api';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('gerente@epacat.gob.ec');
-  const [password, setPassword] = useState('epacat123');
+  const [email, setEmail] = useState('gerente@epim.gob.ec');
+  const [password, setPassword] = useState('epim123');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -40,15 +40,15 @@ export default function LoginPage() {
         href="/"
         className="absolute top-6 left-6 text-sky-100/90 text-sm hover:text-white transition-colors"
       >
-        ← Volver a la propuesta EPACAT
+        ← Volver al portal EPIM
       </Link>
       <form
         onSubmit={handleSubmit}
         className="bg-white rounded-xl shadow-xl p-8 w-full max-w-md space-y-4"
       >
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-bold text-sky-900">EPACAT</h1>
-          <p className="text-slate-500 text-sm">Dashboard de validación gerencial</p>
+          <h1 className="text-2xl font-bold text-sky-900">EPIM</h1>
+          <p className="text-slate-500 text-sm">Portal de administración EPIM</p>
         </div>
         {error && <p className="text-red-600 text-sm bg-red-50 p-2 rounded">{error}</p>}
         <div>

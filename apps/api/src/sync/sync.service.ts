@@ -198,12 +198,23 @@ export class SyncService {
           where: { clientId: data.clientId },
         });
         if (existing) return existing.id;
+        let visitaId: string | undefined;
+        if (data.visitaClientId) {
+          visitaId = clientIdMap[data.visitaClientId];
+          if (!visitaId) {
+            const visita = await this.prisma.visitaCampo.findUnique({
+              where: { clientId: data.visitaClientId },
+            });
+            if (visita) visitaId = visita.id;
+          }
+        }
         const created = await this.prisma.lectura.create({
           data: {
             clientId: data.clientId,
             valor: data.valor,
             fecha: new Date(data.fecha),
             medidorId: medidor.id,
+            visitaId,
             fotoId,
           },
         });

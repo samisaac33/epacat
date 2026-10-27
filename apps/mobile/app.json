@@ -1,23 +1,23 @@
 {
   "expo": {
-    "name": "EPACAT",
-    "slug": "epacat-mobile",
+    "name": "EPIM",
+    "slug": "epim-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "scheme": "epacat",
+    "scheme": "epim",
     "userInterfaceStyle": "light",
     "splash": {
       "backgroundColor": "#0369a1"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "ec.gob.epacat.mobile"
+      "bundleIdentifier": "ec.gob.epim.mobile"
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#0369a1"
       },
-      "package": "ec.gob.epacat.mobile"
+      "package": "ec.gob.epim.mobile"
     },
     "plugins": [
       "expo-router",
@@ -25,13 +25,13 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "EPACAT necesita tu ubicación para registrar visitas de campo."
+          "locationWhenInUsePermission": "EPIM necesita tu ubicación para registrar visitas de campo."
         }
       ],
       [
         "expo-camera",
         {
-          "cameraPermission": "EPACAT necesita la cámara para fotografiar medidores."
+          "cameraPermission": "EPIM necesita la cámara para fotografiar medidores."
         }
       ]
     ]

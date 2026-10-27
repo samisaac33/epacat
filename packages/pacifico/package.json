@@ -1,12 +1,12 @@
 {
-  "name": "@epacat/epacom",
+  "name": "@epacat/pacifico",
   "version": "0.0.0",
   "private": true,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint src"
+    "dev": "tsc --watch"
   },
   "dependencies": {
     "@epacat/shared": "*"

@@ -9,7 +9,7 @@ export default function RootLayout() {
 
   return (
     <Stack screenOptions={{ headerStyle: { backgroundColor: '#0369a1' }, headerTintColor: '#fff' }}>
-      <Stack.Screen name="index" options={{ title: 'EPACAT' }} />
+      <Stack.Screen name="index" options={{ title: 'EPIM' }} />
       <Stack.Screen name="login" options={{ title: 'Iniciar sesión' }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="visita/nueva" options={{ title: 'Nueva visita' }} />

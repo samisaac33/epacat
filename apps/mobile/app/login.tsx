@@ -13,8 +13,8 @@ import { router } from 'expo-router';
 import { login } from '../src/services/api';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState('tecnico1@epacat.gob.ec');
-  const [password, setPassword] = useState('epacat123');
+  const [email, setEmail] = useState('tecnico1@epim.gob.ec');
+  const [password, setPassword] = useState('epim123');
   const [loading, setLoading] = useState(false);
 
   async function handleLogin() {
@@ -38,7 +38,7 @@ export default function LoginScreen() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       style={styles.container}
     >
-      <Text style={styles.title}>EPACAT Campo</Text>
+      <Text style={styles.title}>EPIM Campo</Text>
       <TextInput
         style={styles.input}
         placeholder="Correo"

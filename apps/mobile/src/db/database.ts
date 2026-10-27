@@ -4,7 +4,7 @@ let db: SQLite.SQLiteDatabase | null = null;
 
 export function getDb() {
   if (!db) {
-    db = SQLite.openDatabaseSync('epacat.db');
+    db = SQLite.openDatabaseSync('epim.db');
     initSchema(db);
   }
   return db;

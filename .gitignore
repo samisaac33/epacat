@@ -8,7 +8,7 @@ dist
 .env.local
 storage/uploads/*
 !storage/uploads/.gitkeep
-storage/epacom-outbox/*
-!storage/epacom-outbox/.gitkeep
 coverage
 .DS_Store
+
+.vercel

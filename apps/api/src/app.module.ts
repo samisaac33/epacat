@@ -10,7 +10,9 @@ import { PhotosModule } from './photos/photos.module';
 import { ValidationModule } from './validation/validation.module';
 import { GisModule } from './gis/gis.module';
 import { CatastroModule } from './catastro/catastro.module';
-import { EpacomModule } from './epacom/epacom.module';
+import { BillingModule } from './billing/billing.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { RecaudacionModule } from './recaudacion/recaudacion.module';
 import { HealthController } from './health.controller';
 
 @Module({
@@ -25,7 +27,9 @@ import { HealthController } from './health.controller';
     ValidationModule,
     GisModule,
     CatastroModule,
-    EpacomModule,
+    BillingModule,
+    NotificationsModule,
+    RecaudacionModule,
   ],
   controllers: [HealthController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],

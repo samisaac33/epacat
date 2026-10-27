@@ -17,7 +17,7 @@ export default function Index() {
     return (
       <View style={styles.center}>
         <ActivityIndicator size="large" color="#0369a1" />
-        <Text style={styles.title}>EPACAT</Text>
+        <Text style={styles.title}>EPIM</Text>
         <Text style={styles.sub}>Catastro de campo — Manabí</Text>
       </View>
     );

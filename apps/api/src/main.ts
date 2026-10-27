@@ -8,8 +8,8 @@ async function bootstrap() {
   app.enableCors({ origin: corsOrigins, credentials: true });
 
   const config = new DocumentBuilder()
-    .setTitle('EPACAT API')
-    .setDescription('API middleware — sync offline, validación, GIS, EPACOM')
+    .setTitle('EPIM API')
+    .setDescription('Empresa Pública del Agua (Manabí) — Inteligencia de medición. Sync, validación, GIS, facturación y recaudación Banco Pacífico')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
@@ -17,6 +17,6 @@ async function bootstrap() {
 
   const port = process.env.API_PORT ?? 3001;
   await app.listen(port);
-  console.log(`EPACAT API listening on http://localhost:${port}`);
+  console.log(`EPIM API listening on http://localhost:${port}`);
 }
 bootstrap();

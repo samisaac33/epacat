@@ -1,15 +1,11 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { ValidationStatus, Role } from '@epacat/database';
+import { ValidationStatus } from '@epacat/database';
 import type { ValidationDecision } from '@epacat/shared';
 import { PrismaService } from '../prisma/prisma.service';
-import { EpacomService } from '../epacom/epacom.service';
 
 @Injectable()
 export class ValidationService {
-  constructor(
-    private prisma: PrismaService,
-    private epacom: EpacomService,
-  ) {}
+  constructor(private prisma: PrismaService) {}
 
   async getQueue(status: ValidationStatus = 'PENDING', page = 1, limit = 20) {
     const skip = (page - 1) * limit;
@@ -99,11 +95,6 @@ export class ValidationService {
       });
       return val;
     });
-
-    if (decision.status === 'APPROVED') {
-      const job = await this.epacom.enqueueExport(validacion.visitaId);
-      await this.epacom.processJob(job.id);
-    }
 
     return updated;
   }

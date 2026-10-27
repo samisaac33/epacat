@@ -7,7 +7,7 @@ export default function NotFound() {
       <p className="text-cyan-400 text-sm font-medium uppercase tracking-widest mb-4">404</p>
       <h1 className="text-3xl font-bold text-white mb-2">Página no encontrada</h1>
       <p className="text-slate-400 mb-8 text-center max-w-md">
-        El recurso solicitado no existe en el portal EPACAT.
+        El recurso solicitado no existe en el portal EPIM.
       </p>
       <Button asChild>
         <Link href="/">Volver al portal</Link>

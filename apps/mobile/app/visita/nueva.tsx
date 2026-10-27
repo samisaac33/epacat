@@ -39,6 +39,8 @@ export default function NuevaVisitaScreen() {
   const [nombre, setNombre] = useState('');
   const [direccion, setDireccion] = useState('');
   const [sector, setSector] = useState('Tarqui');
+  const [email, setEmail] = useState('');
+  const [ruc, setRuc] = useState('');
   const [numeroSerie, setNumeroSerie] = useState('');
   const [marca, setMarca] = useState('Sensus');
   const [valorLectura, setValorLectura] = useState('');
@@ -80,6 +82,8 @@ export default function NuevaVisitaScreen() {
         nombre,
         direccion,
         sector,
+        email: email.trim() || undefined,
+        ruc: ruc.trim() || undefined,
       });
       const medidor = medidorInputSchema.parse({
         clientId: medidorClientId,
@@ -98,6 +102,7 @@ export default function NuevaVisitaScreen() {
       const lectura = lecturaInputSchema.parse({
         clientId: lecturaClientId,
         medidorClientId,
+        visitaClientId,
         valor: parseFloat(valorLectura),
         fecha: new Date().toISOString(),
         fotoLocalId: fotoUri ? fotoLocalId : undefined,
@@ -168,6 +173,21 @@ export default function NuevaVisitaScreen() {
         onChangeText={setDireccion}
       />
       <TextInput style={styles.input} placeholder="Sector" value={sector} onChangeText={setSector} />
+      <TextInput
+        style={styles.input}
+        placeholder="Email (cobranza, opcional)"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="RUC (opcional, personas jurídicas)"
+        value={ruc}
+        onChangeText={setRuc}
+        keyboardType="number-pad"
+      />
 
       <Text style={styles.section}>Medidor</Text>
       <TextInput

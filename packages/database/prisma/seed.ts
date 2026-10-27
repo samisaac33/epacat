@@ -4,13 +4,13 @@ import * as bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  const passwordHash = await bcrypt.hash('epacat123', 10);
+  const passwordHash = await bcrypt.hash('epim123', 10);
 
   const tech1 = await prisma.user.upsert({
-    where: { email: 'tecnico1@epacat.gob.ec' },
+    where: { email: 'tecnico1@epim.gob.ec' },
     update: {},
     create: {
-      email: 'tecnico1@epacat.gob.ec',
+      email: 'tecnico1@epim.gob.ec',
       passwordHash,
       nombre: 'Carlos Mendoza',
       role: Role.TECHNICIAN,
@@ -18,10 +18,10 @@ async function main() {
   });
 
   const tech2 = await prisma.user.upsert({
-    where: { email: 'tecnico2@epacat.gob.ec' },
+    where: { email: 'tecnico2@epim.gob.ec' },
     update: {},
     create: {
-      email: 'tecnico2@epacat.gob.ec',
+      email: 'tecnico2@epim.gob.ec',
       passwordHash,
       nombre: 'Ana Villacís',
       role: Role.TECHNICIAN,
@@ -29,10 +29,10 @@ async function main() {
   });
 
   await prisma.user.upsert({
-    where: { email: 'gerente@epacat.gob.ec' },
+    where: { email: 'gerente@epim.gob.ec' },
     update: {},
     create: {
-      email: 'gerente@epacat.gob.ec',
+      email: 'gerente@epim.gob.ec',
       passwordHash,
       nombre: 'María Delgado',
       role: Role.MANAGER,
@@ -40,10 +40,10 @@ async function main() {
   });
 
   await prisma.user.upsert({
-    where: { email: 'admin@epacat.gob.ec' },
+    where: { email: 'admin@epim.gob.ec' },
     update: {},
     create: {
-      email: 'admin@epacat.gob.ec',
+      email: 'admin@epim.gob.ec',
       passwordHash,
       nombre: 'Admin Sistema',
       role: Role.ADMIN,
@@ -52,7 +52,7 @@ async function main() {
 
   const abonado = await prisma.abonado.upsert({
     where: { clientId: '00000000-0000-4000-8000-000000000001' },
-    update: {},
+    update: { email: 'juan.perez@example.com' },
     create: {
       clientId: '00000000-0000-4000-8000-000000000001',
       cedula: '1301234567',
@@ -60,6 +60,7 @@ async function main() {
       direccion: 'Av. Malecón 123, Manta',
       sector: 'Tarqui',
       telefono: '0991234567',
+      email: 'juan.perez@example.com',
     },
   });
 
@@ -114,6 +115,36 @@ async function main() {
     create: {
       visitaId: visita.id,
       status: 'PENDING',
+    },
+  });
+
+  await prisma.tarifa.upsert({
+    where: { id: 'tarifa-residencial-default' },
+    update: {},
+    create: {
+      id: 'tarifa-residencial-default',
+      nombre: 'Residencial estándar',
+      cargoFijo: 2.5,
+      precioM3: 0.45,
+      activa: true,
+    },
+  });
+
+  const now = new Date();
+  const anio = now.getFullYear();
+  const mes = now.getMonth() + 1;
+  const fechaInicio = new Date(anio, mes - 1, 1);
+  const fechaFin = new Date(anio, mes, 0, 23, 59, 59, 999);
+
+  await prisma.periodoFacturacion.upsert({
+    where: { anio_mes: { anio, mes } },
+    update: {},
+    create: {
+      anio,
+      mes,
+      status: 'ABIERTO',
+      fechaInicio,
+      fechaFin,
     },
   });
 

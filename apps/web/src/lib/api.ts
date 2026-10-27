@@ -2,15 +2,15 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
 export function getToken(): string | null {
   if (typeof window === 'undefined') return null;
-  return localStorage.getItem('epacat_token');
+  return localStorage.getItem('epim_token');
 }
 
 export function setToken(token: string) {
-  localStorage.setItem('epacat_token', token);
+  localStorage.setItem('epim_token', token);
 }
 
 export function clearToken() {
-  localStorage.removeItem('epacat_token');
+  localStorage.removeItem('epim_token');
 }
 
 export async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {

@@ -21,7 +21,7 @@ const config: Config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        epacat: {
+        epim: {
           primary: '#0369a1',
           secondary: '#0ea5e9',
         },

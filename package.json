@@ -2,7 +2,7 @@
   "name": "epacat",
   "version": "1.0.0",
   "private": true,
-  "description": "Sistema EPACAT — catastro de usuarios y medidores (Manabí, Ecuador)",
+  "description": "EPIM — Empresa Pública del Agua (Manabí): inteligencia de medición y catastro (monorepo epacat)",
   "workspaces": [
     "apps/*",
     "packages/*"
