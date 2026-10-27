@@ -13,6 +13,7 @@ import { CatastroModule } from './catastro/catastro.module';
 import { BillingModule } from './billing/billing.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { RecaudacionModule } from './recaudacion/recaudacion.module';
+import { ComercialModule } from './comercial/comercial.module';
 import { HealthController } from './health.controller';
 
 @Module({
@@ -30,6 +31,7 @@ import { HealthController } from './health.controller';
     BillingModule,
     NotificationsModule,
     RecaudacionModule,
+    ComercialModule,
   ],
   controllers: [HealthController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],

@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { clearToken } from '@/lib/api';
+import { clearAuthToken } from '@/hooks/useAuthToken';
 
 const links = [
   { href: '/validation', label: 'Validación' },
+  { href: '/comercial', label: 'Comercial' },
   { href: '/facturacion', label: 'Facturación' },
   { href: '/map', label: 'Mapa GIS' },
   { href: '/catastro', label: 'Catastro' },
@@ -31,7 +32,7 @@ export function DashboardNav() {
       </div>
       <button
         onClick={() => {
-          clearToken();
+          clearAuthToken();
           router.push('/login');
         }}
         className="text-sm bg-sky-700 px-3 py-1 rounded hover:bg-sky-600"

@@ -94,6 +94,25 @@ El paquete `@epacat/pacifico` incluye un cliente stub para pruebas de integraci�
 
 Sin `RESEND_API_KEY` el sistema opera en modo stub (registra en `CobranzaEmail` y log en consola).
 
+## Despliegue web (Vercel)
+
+Variables recomendadas en el proyecto **web** (`apps/web`):
+
+| Variable | Uso |
+|----------|-----|
+| `NEXT_PUBLIC_API_URL` | URL HTTPS de la API Nest (validación, facturación, login). Obligatoria si la API está en otro host. |
+| `JWT_SECRET` | Mismo valor que en la API. Permite servir `/api/comercial/*` (snapshot RUAA/EPA) en el mismo dominio que la web, sin depender de CORS. |
+
+En la **API**, incluir el origen de la web en `CORS_ORIGINS`, por ejemplo `https://epim-web.vercel.app,http://localhost:3000`.
+
+Tras cambiar `NEXT_PUBLIC_*`, redeployar la web (se inlined en el build).
+
+**Checklist `/comercial` en producción (solo web Vercel)**
+
+1. `/comercial` y `/api/comercial/*` son **públicos** (snapshot de estudio, sin login).
+2. El resto del dashboard (validación, facturación, etc.) sigue pidiendo sesión vía API Nest (`NEXT_PUBLIC_API_URL` + login).
+3. **Build command** en Vercel: `npm run build` desde `apps/web` (o monorepo con filtro `@epacat/web`), no solo `next build` — copia el snapshot a `apps/web/data/` para la función serverless.
+
 ## Scripts
 
 | Script | Descripción |

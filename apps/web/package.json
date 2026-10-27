@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "npm run build -w @epacat/comercial && node scripts/copy-comercial-snapshot.mjs && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@epacat/comercial": "*",
     "@epacat/shared": "*",
+    "jose": "^5.9.6",
     "@radix-ui/react-slot": "^1.1.1",
     "@tanstack/react-query": "^5.62.8",
     "class-variance-authority": "^0.7.1",

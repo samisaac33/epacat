@@ -1,3 +1,4 @@
+import { DashboardAuthGate } from '@/components/DashboardAuthGate';
 import { DashboardNav } from '@/components/DashboardNav';
 import { Providers } from '../providers';
 
@@ -7,7 +8,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <Providers>
       <DashboardNav />
-      <main className="p-6 max-w-7xl mx-auto">{children}</main>
+      <main className="p-6 max-w-7xl mx-auto">
+        <DashboardAuthGate>{children}</DashboardAuthGate>
+      </main>
     </Providers>
   );
 }

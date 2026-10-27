@@ -1,0 +1,30 @@
+{
+  "name": "@epacat/comercial",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "data"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src",
+    "comercial:snapshot": "ts-node --transpile-only scripts/generate-snapshot.ts",
+    "comercial:refresh-aggregates": "ts-node --transpile-only scripts/refresh-snapshot-aggregates.ts"
+  },
+  "dependencies": {
+    "csv-parse": "^5.6.0"
+  },
+  "devDependencies": {
+    "@epacat/tsconfig": "*",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}

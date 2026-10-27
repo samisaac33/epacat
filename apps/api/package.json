@@ -11,6 +11,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@epacat/comercial": "*",
     "@epacat/database": "*",
     "@epacat/pacifico": "*",
     "@epacat/shared": "*",
