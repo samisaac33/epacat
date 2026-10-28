@@ -4,9 +4,11 @@ Cruce de reportes EPA EP con RUAA (RPA) y estimación de recaudación por aprove
 
 ## Criterios de cruce
 
-1. Join principal por `codigo_unico` normalizado (`MA-PO-...`, sin `/` ni sufijos `PENDIENTE`).
-2. Si hay varias filas RUAA con el mismo código, se elige la más cercana en caudal (±0,05 l/s) al `Caudal Fijo` EPA.
-3. Respaldo por cédula/RUC cuando no hay código.
+1. **Alta confianza:** `codigo_unico` normalizado (`MA-PO-...`, sin `/` ni sufijos `PENDIENTE`). Si hay varias filas RUAA con el mismo código, se elige la más cercana en caudal (±0,05 l/s) al `Caudal Fijo` EPA.
+2. **Media confianza:** cédula/RUC literal + caudal (misma tolerancia y desempate).
+3. **Baja confianza (cruce ampliado):** cédula/RUC normalizada (solo dígitos, sin ceros a la izquierda) + caudal; o **código estema** `MA-XX-######` común entre EPA (`PENDIENTE`) y RUAA (`codigo_proceso`).
+
+Cada fila del análisis incluye `matchMethod` y `matchConfianza` (`alta` | `media` | `baja`).
 
 ## Fórmula de facturación anual (inferida de extractos de deuda EPA)
 
@@ -40,3 +42,9 @@ npm run comercial:snapshot -w @epacat/comercial -- /ruta/ruaa_total.csv /ruta/re
 En Vercel, el build de `apps/web` copia el JSON a `apps/web/data/` (`scripts/copy-comercial-snapshot.mjs`); use `npm run build` del workspace web, no solo `next build`.
 
 Variables alternativas: `RUAA_CSV`, `EPA_CSV`.
+
+Adjuntar solo el censo RUAA al snapshot existente:
+
+```bash
+npm run comercial:attach-ruaa-resumen -w @epacat/comercial -- /ruta/ruaa_total.csv
+```

@@ -8,3 +8,5 @@ export * from './match-records';
 export * from './estados-cobrable';
 export * from './analyze';
 export * from './load-snapshot';
+export * from './ruaa-resumen';
+export * from './epa-resumen';

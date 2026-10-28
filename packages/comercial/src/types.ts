@@ -1,6 +1,13 @@
 export type TarifaOrigen = 'normativa' | 'inferida' | 'fallback_epa';
 
-export type MatchMethod = 'codigo_unico' | 'cedula_caudal' | 'none';
+export type MatchConfianza = 'alta' | 'media' | 'baja';
+
+export type MatchMethod =
+  | 'codigo_unico'
+  | 'cedula_caudal'
+  | 'cedula_normalizada'
+  | 'codigo_estema'
+  | 'none';
 
 export interface RuaaRow {
   ruaaId: string;
@@ -45,6 +52,8 @@ export interface AnalisisFila {
   estadoContratoEpa: string;
   estadoTramiteRuaa: string | null;
   matchMethod: MatchMethod;
+  /** null si no hay cruce RUAA. */
+  matchConfianza: MatchConfianza | null;
   nomUsoRuaa: string | null;
   caudalFijoLs: number;
   tarifaUsdM3: number;
@@ -62,6 +71,8 @@ export interface AnalisisResumen {
   totalFilasEpa: number;
   filasConCruce: number;
   filasSinCruce: number;
+  /** Matches por código estema o cédula normalizada (revisión manual recomendada). */
+  filasMatchBajaConfianza: number;
   cuentasEpaActivas: number;
   desalineacionesEpaActivoNoVigente: number;
   montoCobradoAsumidoTotalUsd: number;
@@ -109,6 +120,40 @@ export interface AnalisisResult {
   parseWarnings: string[];
 }
 
+export interface RuaaResumenEstado {
+  estadoTramite: string;
+  cantidad: number;
+}
+
+export interface RuaaResumen {
+  totalFilas: number;
+  porEstadoTramite: RuaaResumenEstado[];
+  codigosUnicosDistintos: number;
+  codigosConMasDeUnaFila: number;
+  filasEnCodigosRepetidos: number;
+  cedulasConMasDeUnaFila: number;
+}
+
+export interface EpaResumen {
+  totalFilas: number;
+  cuentasActivas: number;
+  codigosUnicosLiterales: number;
+  codigosUnicosNormalizados: number;
+  sinCodigoNormalizado: number;
+}
+
+export interface CruceEstadisticas {
+  filasEpaConMatch: number;
+  matchPorCodigo: number;
+  matchPorCedula: number;
+  matchPorCedulaNormalizada: number;
+  matchPorCodigoEstema: number;
+  matchBajaConfianza: number;
+  filasSinMatch: number;
+  codigosNormalizadosEnAmbosFuentes: number;
+  filasEpaConCodigoPresenteEnRuaa: number;
+}
+
 export interface AnalisisSnapshotMeta {
   id: string;
   titulo: string;
@@ -118,6 +163,12 @@ export interface AnalisisSnapshotMeta {
   fuenteRuaa: string;
   fuenteEpa: string;
   fechaReporteEpa: string | null;
+  /** Censo del export RUAA completo (no solo filas con cruce EPA). */
+  ruaaResumen?: RuaaResumen;
+  /** Censo del reporte EPA EP. */
+  epaResumen?: EpaResumen;
+  /** Desglose del cruce (requiere ambos CSV al generar). */
+  cruceEstadisticas?: CruceEstadisticas;
 }
 
 export interface AnalisisSnapshot {

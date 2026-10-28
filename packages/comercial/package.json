@@ -14,7 +14,9 @@
     "test": "jest",
     "lint": "eslint src",
     "comercial:snapshot": "ts-node --transpile-only scripts/generate-snapshot.ts",
-    "comercial:refresh-aggregates": "ts-node --transpile-only scripts/refresh-snapshot-aggregates.ts"
+    "comercial:refresh-aggregates": "ts-node --transpile-only scripts/refresh-snapshot-aggregates.ts",
+    "comercial:attach-ruaa-resumen": "ts-node --transpile-only scripts/attach-ruaa-resumen.ts",
+    "comercial:attach-epa-censo": "ts-node --transpile-only scripts/attach-epa-censo.ts"
   },
   "dependencies": {
     "csv-parse": "^5.6.0"

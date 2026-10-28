@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { analizarCruceRuaaEpa } from '../src/analyze';
+import { buildCruceEstadisticas, buildEpaResumen } from '../src/epa-resumen';
+import { buildRuaaResumen } from '../src/ruaa-resumen';
 import { SNAPSHOT_FILENAME, type AnalisisSnapshot } from '../src/types';
 
 function extractFechaReporteEpa(epaCsv: string): string | null {
@@ -27,12 +29,15 @@ function main() {
       id: 'manabi-cruce-ruaa-epa',
       titulo: 'Cruce RUAA (RPA) vs reporte EPA EP — Manabí',
       descripcion:
-        'Estudio puntual: estado de cobro según RUAA (VIGENTE o RENOVADO), facturación anual por caudal fijo y tarifa normativa (consumo humano excluido de recaudación); comparación con cuentas EPA en Activo.',
+        'Estudio puntual: cruce RUAA–EPA (código, cédula+caudal y cruce ampliado por estema/cédula normalizada con confianza baja), cobro VIGENTE/RENOVADO, tarifa normativa; consumo humano excluido de recaudación.',
       generatedAt: new Date().toISOString(),
       criterioCobro: 'Autorizaciones con estado_tramite VIGENTE o RENOVADO en RUAA (usos sujetos a recaudación)',
       fuenteRuaa: 'Exportación RUAA / RPA — Ministerio del Ambiente y Agua',
       fuenteEpa: 'Reporte EPA EP: Cuentas, usuarios y punto de suministro',
       fechaReporteEpa: extractFechaReporteEpa(epaCsv),
+      ruaaResumen: buildRuaaResumen(ruaaCsv),
+      epaResumen: buildEpaResumen(epaCsv),
+      cruceEstadisticas: buildCruceEstadisticas(epaCsv, ruaaCsv),
     },
     result,
   };

@@ -10,6 +10,16 @@ export function normalizeCodigoUnico(raw: string | null | undefined): string | n
   return c;
 }
 
+/** Tronco MA-XX-###### común en EPA (PENDIENTE) y RUAA (codigo_proceso). */
+export function codigoStem(raw: string | null | undefined): string | null {
+  const n = normalizeCodigoUnico(raw);
+  if (!n) return null;
+  const m = n.match(/^(MA-[A-Z]{2})-(\d+)/);
+  if (!m) return null;
+  const seg = m[2].replace(/^0+/, '') || '0';
+  return `${m[1]}-${seg.padStart(6, '0')}`;
+}
+
 export function parseNumeroLocale(value: string | null | undefined): number {
   if (value == null || value === '' || value === 'NULL') return 0;
   const n = parseFloat(String(value).trim().replace(',', '.'));

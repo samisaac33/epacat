@@ -1,9 +1,5 @@
 import { facturaAnualCentavos, montoAnualUsd } from './calcular-factura-anual';
-import {
-  indexRuaaByCedula,
-  indexRuaaByCodigo,
-  matchEpaToRuaa,
-} from './match-records';
+import { buildMatchIndexes, matchEpaToRuaa } from './match-records';
 import { parseEpaReporteCsv } from './parse-epa-reporte';
 import { parseRuaaCsv } from './parse-ruaa';
 import { esEstadoTramiteCobrable } from './estados-cobrable';
@@ -92,6 +88,7 @@ function buildFila(epa: EpaRow, match: ReturnType<typeof matchEpaToRuaa>): Anali
     estadoContratoEpa: epa.estadoContrato,
     estadoTramiteRuaa: estadoTramite,
     matchMethod,
+    matchConfianza: match?.confianza ?? null,
     nomUsoRuaa: nomUso,
     caudalFijoLs: caudal,
     tarifaUsdM3,
@@ -207,6 +204,7 @@ function buildResumen(filas: AnalisisFila[], sinCruce: AnalisisFila[], totalEpa:
     totalFilasEpa: totalEpa,
     filasConCruce: conCruce.length,
     filasSinCruce: sinCruce.length,
+    filasMatchBajaConfianza: filas.filter((f) => f.matchConfianza === 'baja').length,
     cuentasEpaActivas: filas.filter((f) => f.estadoContratoEpa.toLowerCase() === 'activo').length,
     desalineacionesEpaActivoNoVigente: filas.filter((f) => f.desalineacionEpaActivo).length,
     montoCobradoAsumidoTotalUsd: filas.reduce((s, f) => s + f.montoCobradoAsumidoUsd, 0),
@@ -220,14 +218,13 @@ export function analizarCruceRuaaEpa(ruaaCsv: string, epaCsv: string): AnalisisR
   const { rows: epaRows, warnings: wEpa } = parseEpaReporteCsv(epaCsv);
   const parseWarnings = [...wRuaa, ...wEpa];
 
-  const byCodigo = indexRuaaByCodigo(ruaaRows);
-  const byCedula = indexRuaaByCedula(ruaaRows);
+  const indexes = buildMatchIndexes(ruaaRows, true);
 
   const filas: AnalisisFila[] = [];
   const sinCruce: AnalisisFila[] = [];
 
   for (const epa of epaRows) {
-    const match = matchEpaToRuaa(epa, byCodigo, byCedula);
+    const match = matchEpaToRuaa(epa, indexes, undefined, true);
     const fila = buildFila(epa, match);
     filas.push(fila);
     if (fila.matchMethod === 'none') sinCruce.push(fila);
