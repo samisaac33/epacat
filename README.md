@@ -113,6 +113,10 @@ Tras cambiar `NEXT_PUBLIC_*`, redeployar la web (se inlined en el build).
 2. El resto del dashboard (validación, facturación, etc.) sigue pidiendo sesión vía API Nest (`NEXT_PUBLIC_API_URL` + login).
 3. **Build command** en Vercel: `npm run build` desde `apps/web` (o monorepo con filtro `@epacat/web`), no solo `next build` — copia el snapshot a `apps/web/data/` para la función serverless.
 
+## Contratación pública (plantilla)
+
+Borrador de **especificaciones técnicas de servicio** para piloto EPIM Manabí (ínfima cuantía, sin encuadre de consultoría): [`docs/especificaciones-servicio-epim-infima-cuantia-manabi.md`](docs/especificaciones-servicio-epim-infima-cuantia-manabi.md). Revisión obligatoria por compras y asesoría jurídica de la EPA antes de publicar.
+
 ## Scripts
 
 | Script | Descripción |
