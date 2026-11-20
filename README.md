@@ -115,7 +115,10 @@ Tras cambiar `NEXT_PUBLIC_*`, redeployar la web (se inlined en el build).
 
 ## Contratación pública (plantilla)
 
-Borrador de **especificaciones técnicas de servicio** para piloto EPIM Manabí (ínfima cuantía, sin encuadre de consultoría): [`docs/especificaciones-servicio-epim-infima-cuantia-manabi.md`](docs/especificaciones-servicio-epim-infima-cuantia-manabi.md). Revisión obligatoria por compras y asesoría jurídica de la EPA antes de publicar.
+- Especificaciones técnicas (Markdown): [`docs/especificaciones-servicio-epim-infima-cuantia-manabi.md`](docs/especificaciones-servicio-epim-infima-cuantia-manabi.md)
+- Presupuesto referencial / TDR (HTML imprimible): [`docs/presupuesto-referencial-epim-infima-cuantia-manabi.html`](docs/presupuesto-referencial-epim-infima-cuantia-manabi.html)
+
+Revisión obligatoria por compras y asesoría jurídica de la EPA antes de publicar.
 
 ## Scripts
 

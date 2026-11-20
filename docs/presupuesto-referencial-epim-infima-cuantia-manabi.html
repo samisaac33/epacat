@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presupuesto Referencial - EPIM Piloto Manabí</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 40px auto;
+    max-width: 900px;
+    color: #222;
+    line-height: 1.4;
+  }
+  .header-box {
+    text-align: center;
+    border-bottom: 3px solid #0f4c81;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  .header-box h2 {
+    margin: 0;
+    color: #0f4c81;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+  }
+  .header-box h3 {
+    margin: 5px 0 0 0;
+    font-size: 15px;
+    color: #444;
+  }
+  .header-box .doc-type {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #777;
+    text-transform: uppercase;
+  }
+  .section-title {
+    background-color: #f0f4f8;
+    color: #0f4c81;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border-left: 5px solid #0f4c81;
+    margin-top: 25px;
+    margin-bottom: 12px;
+  }
+  .general-data p {
+    margin: 6px 0;
+    font-size: 13px;
+  }
+  table.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 11.5px;
+  }
+  table.budget-table th, table.budget-table td {
+    border: 1px solid #c0c0c0;
+    padding: 6px 8px;
+  }
+  table.budget-table th {
+    background-color: #e9ecef;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+  }
+  .category-row {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #0f4c81;
+  }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .total-row {
+    font-weight: bold;
+    background-color: #fbfbfb;
+  }
+  .total-highlight {
+    background-color: #eaf2f8;
+    color: #0f4c81;
+    font-size: 12.5px;
+  }
+  .terms-box {
+    margin-top: 25px;
+    font-size: 12px;
+  }
+  .terms-box ol {
+    margin: 6px 0;
+    padding-left: 20px;
+  }
+  .terms-box li {
+    margin-bottom: 4px;
+  }
+  .terms-box ul {
+    margin: 4px 0 8px 0;
+    padding-left: 20px;
+  }
+  table.signatures-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 60px;
+    border: none;
+  }
+  table.signatures-table td {
+    border: none;
+    width: 50%;
+    text-align: center;
+    font-size: 12px;
+    vertical-align: bottom;
+  }
+  .signature-line {
+    width: 75%;
+    margin: 0 auto 8px auto;
+    border-top: 1px solid #333;
+  }
+  .note-box {
+    font-size: 11.5px;
+    color: #555;
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: #fafafa;
+    border-left: 3px solid #ccc;
+  }
+  @media print {
+    body { margin: 20px; font-size: 11px; }
+    .section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    table.budget-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .category-row { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .total-highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header-box">
+    <h2>EMPRESA PÚBLICA DEL AGUA - EPA EP</h2>
+    <h3>GERENCIA MANABÍ — INTELIGENCIA DE MEDICIÓN (EPIM)</h3>
+    <div class="doc-type">Términos de Referencia / Estudio de Presupuesto Referencial (Ínfima Cuantía)</div>
+  </div>
+
+  <div class="section-title">1. DATOS GENERALES DEL PROCESO</div>
+  <div class="general-data">
+    <p><strong>OBJETO DEL CONTRATO:</strong> «Prestación del servicio de implementación, operación piloto y soporte de la plataforma EPIM (Inteligencia de Medición), complementaria al sistema nacional de gestión comercial, exclusiva para la jurisdicción Manabí: registro en campo offline, validación en oficina, mapa territorial, procesamiento de cruce RUAA–extracto EPA EP y tablero de análisis comercial, más licencia de uso del software durante el piloto».</p>
+    <p><strong>UBICACIÓN:</strong> Provincia de Manabí, Ecuador (prestación principal remota; capacitación presencial en sede EPA o modalidad virtual sincrónica según disponibilidad institucional — Portoviejo / Manta).</p>
+    <p><strong>PLAZO DE EJECUCIÓN:</strong> 105 días calendario a partir de la notificación de la Orden de Compra/Servicio (incluye 90 días de operación piloto).</p>
+    <p><strong>PROCEDIMIENTO:</strong> Ínfima Cuantía (Art. 52.1 Ley Orgánica del Sistema Nacional de Contratación Pública y normativa conexa vigente).</p>
+    <p><strong>NATURALEZA:</strong> Adquisición de <strong>bienes intangibles</strong> (licencia de uso) y <strong>prestación de servicios</strong> tecnológicos. No constituye contratación de consultoría ni sustitución del CRM/facturación nacional.</p>
+  </div>
+
+  <div class="section-title">2. TABLA DE PRESUPUESTO REFERENCIAL</div>
+  <table class="budget-table">
+    <thead>
+      <tr>
+        <th style="width: 5%;">Ít.</th>
+        <th style="width: 55%;">Descripción del Bien / Servicio</th>
+        <th style="width: 7%;">Cant.</th>
+        <th style="width: 8%;">Unidad</th>
+        <th style="width: 12%;">P. Unit. ($)</th>
+        <th style="width: 13%;">P. Total ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="category-row">
+        <td colspan="6">1. HABILITACIÓN E IMPLEMENTACIÓN DE LA PLATAFORMA EPIM</td>
+      </tr>
+      <tr>
+        <td class="text-center">1.1</td>
+        <td>Despliegue de entorno piloto (API, base de datos, portal web), configuración de roles (técnico de campo, administración, administrador), parámetros provincia Manabí y credenciales para personal designado por la EPA</td>
+        <td class="text-center">1</td>
+        <td class="text-center">gbl</td>
+        <td class="text-right">1.150,00</td>
+        <td class="text-right">1.150,00</td>
+      </tr>
+      <tr>
+        <td class="text-center">1.2</td>
+        <td>Acta de inicio, cronograma, matriz de accesos y manual de operación básica del piloto (formato digital)</td>
+        <td class="text-center">1</td>
+        <td class="text-center">gbl</td>
+        <td class="text-right">530,00</td>
+        <td class="text-right">530,00</td>
+      </tr>
+
+      <tr class="category-row">
+        <td colspan="6">2. OPERACIÓN PILOTO — MEDICIÓN EN CAMPO, VALIDACIÓN Y MAPA</td>
+      </tr>
+      <tr>
+        <td class="text-center">2.1</td>
+        <td>Servicio de operación de aplicación móvil offline-first (registro de visita: abonado/medidor, lectura, GPS, fotografía, sincronización); hasta 5 usuarios técnicos y mínimo 200 visitas sincronizadas en el periodo piloto</td>
+        <td class="text-center">90</td>
+        <td class="text-center">días</td>
+        <td class="text-right">22,00</td>
+        <td class="text-right">1.980,00</td>
+      </tr>
+      <tr>
+        <td class="text-center">2.2</td>
+        <td>Servicio de portal web de validación (cola de visitas, aprobación/rechazo con comentario, consulta de abonados y medidores en alcance piloto); hasta 3 usuarios de administración</td>
+        <td class="text-center">90</td>
+        <td class="text-center">días</td>
+        <td class="text-right">11,50</td>
+        <td class="text-right">1.035,00</td>
+      </tr>
+      <tr>
+        <td class="text-center">2.3</td>
+        <td>Servicio de visualización en mapa territorial GIS (visitas georreferenciadas provincia Manabí)</td>
+        <td class="text-center">90</td>
+        <td class="text-center">días</td>
+        <td class="text-right">5,50</td>
+        <td class="text-right">495,00</td>
+      </tr>
+
+      <tr class="category-row">
+        <td colspan="6">3. PROCESAMIENTO DE DATOS RUAA–EPA Y TABLERO COMERCIAL</td>
+      </tr>
+      <tr>
+        <td class="text-center">3.1</td>
+        <td>Servicio de procesamiento de un (1) corte de extracto EPA EP y un (1) corte archivo RUAA Manabí; generación de reporte de cruce (matches, brechas de cobro, desalineaciones) y una (1) actualización si la entidad entrega archivos corregidos dentro de los primeros 45 días del piloto</td>
+        <td class="text-center">1</td>
+        <td class="text-center">gbl</td>
+        <td class="text-right">1.420,00</td>
+        <td class="text-right">1.420,00</td>
+      </tr>
+      <tr>
+        <td class="text-center">3.2</td>
+        <td>Servicio de tablero web de solo lectura (módulo análisis comercial RUAA/EPA) para personal autorizado, vigente durante el piloto</td>
+        <td class="text-center">90</td>
+        <td class="text-center">días</td>
+        <td class="text-right">4,80</td>
+        <td class="text-right">432,00</td>
+      </tr>
+
+      <tr class="category-row">
+        <td colspan="6">4. CAPACITACIÓN Y TRANSFERENCIA DE CONOCIMIENTO</td>
+      </tr>
+      <tr>
+        <td class="text-center">4.1</td>
+        <td>Jornada de capacitación presencial o virtual sincrónica (mínimo 4 horas): app móvil, sincronización, validación, mapa y tablero comercial; lista de asistencia y material didáctico</td>
+        <td class="text-center">1</td>
+        <td class="text-center">gbl</td>
+        <td class="text-right">480,00</td>
+        <td class="text-right">480,00</td>
+      </tr>
+
+      <tr class="category-row">
+        <td colspan="6">5. SOPORTE TÉCNICO Y CIERRE DEL PILOTO</td>
+      </tr>
+      <tr>
+        <td class="text-center">5.1</td>
+        <td>Servicio de soporte técnico durante el piloto (canal correo/ticket; respuesta máx. 48 h hábiles incidentes críticos, 5 días hábiles menores) y mantenimiento correctivo del software dentro del alcance</td>
+        <td class="text-center">90</td>
+        <td class="text-center">días</td>
+        <td class="text-right">6,80</td>
+        <td class="text-right">612,00</td>
+      </tr>
+      <tr>
+        <td class="text-center">5.2</td>
+        <td>Acompañamiento remoto post puesta en marcha (4 jornadas de seguimiento operativo)</td>
+        <td class="text-center">4</td>
+        <td class="text-center">u</td>
+        <td class="text-right">95,00</td>
+        <td class="text-right">380,00</td>
+      </tr>
+      <tr>
+        <td class="text-center">5.3</td>
+        <td>Exportación de datos del piloto al cierre (CSV/JSON), acta de cierre y anexo informativo de recomendaciones de interoperabilidad con sistema nacional (sin integración productiva obligatoria)</td>
+        <td class="text-center">1</td>
+        <td class="text-center">gbl</td>
+        <td class="text-right">388,00</td>
+        <td class="text-right">388,00</td>
+      </tr>
+
+      <tr class="category-row">
+        <td colspan="6">6. LICENCIA DE USO DEL SOFTWARE (BIEN INTANGIBLE)</td>
+      </tr>
+      <tr>
+        <td class="text-center">6.1</td>
+        <td>Licencia de uso no exclusiva de la plataforma EPIM (app móvil, portal, API y módulos del piloto) a favor de la EPA Manabí, vigencia igual al periodo del piloto</td>
+        <td class="text-center">1</td>
+        <td class="text-center">gbl</td>
+        <td class="text-right">1.248,00</td>
+        <td class="text-right">1.248,00</td>
+      </tr>
+
+      <tr class="total-row">
+        <td colspan="5" class="text-right">SUBTOTAL (BASE IMPONIBLE):</td>
+        <td class="text-right">$ 9.950,00</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="5" class="text-right">IVA (15%):</td>
+        <td class="text-right">$ 1.492,50</td>
+      </tr>
+      <tr class="total-row total-highlight">
+        <td colspan="5" class="text-right"><strong>VALOR TOTAL CONTRATACIÓN:</strong></td>
+        <td class="text-right"><strong>$ 11.442,50</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>Nota presupuestaria:</strong> El presupuesto referencial de ínfima cuantía se fija en la base imponible USD 9.950,00 (máximo USD 10.000,00 según certificación de la entidad). Las proformas de proveedores no podrán superar dicho subtotal. Los ítems son referenciales; la entidad seleccionará la mejor relación costo–beneficio conforme a la normativa vigente.
+  </div>
+
+  <div class="terms-box">
+    <div class="section-title">3. CONDICIONES COMERCIALES Y DE ENTREGA</div>
+    <ol>
+      <li><strong>Forma de pago:</strong> 100% contra entrega, previo informe de conformidad emitido por el Administrador de Contrato y suscripción del Acta Entrega-Recepción Definitiva, una vez recibidos los entregables mínimos (plataforma operativa, reporte RUAA–EPA, tablero, capacitación, exportación de datos y acta de cierre).</li>
+      <li><strong>Garantía técnica:</strong> Mínimo noventa (90) días calendario a partir del acta de cierre para corrección de defectos atribuibles al software, dentro del alcance contratado (sin nuevos desarrollos ni integración con CRM nacional).</li>
+      <li><strong>Lugar de prestación:</strong> Servicio principal en modalidad remota; capacitación en sede EPA Manabí o virtual; operación de campo en territorio de la provincia de Manabí (dispositivos y conectividad a cargo de la entidad).</li>
+      <li><strong>Exclusiones:</strong> No incluye hardware, sustitución del sistema nacional de facturación/CRM, facturación masiva en producción, ni integración productiva bidireccional con sistemas corporativos.</li>
+      <li><strong>Confidencialidad:</strong> Toda información de abonados, cuentas y archivos RUAA/EPA es confidencial; los datos son propiedad de la entidad contratante.</li>
+      <li><strong>Entregables de aceptación:</strong> Criterios detallados en las especificaciones técnicas anexas al expediente de contratación.</li>
+    </ol>
+  </div>
+
+  <table class="signatures-table">
+    <tr>
+      <td>
+        <div class="signature-line"></div>
+        <strong>ELABORADO POR</strong><br>
+        Unidad Requirente / Gerencia Manabí<br>
+        CI: ____________________
+      </td>
+      <td>
+        <div class="signature-line"></div>
+        <strong>REVISADO Y APROBADO POR</strong><br>
+        Administrador de Contrato / Máxima Autoridad delegada<br>
+        EMPRESA PÚBLICA DEL AGUA - EPA EP
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
