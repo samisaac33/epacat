@@ -9,7 +9,7 @@
 | `scripts/generate-google-slides-deck.mjs` | Generador vía Google Slides API |
 | `deck-slide-images.json` + `scripts/generate-deck-images.mjs` | Ilustraciones sin texto (enfoque antiguo; no usar para pitch) |
 | `pitch-slides-spec.json` + `scripts/generate-pitch-slide.mjs` | **6 slides de pitch** con texto en español, estilo regente 50/50, colores EPA; una slide por comando; `gemini-nano-banana-2.1` + `GEMINI_API_KEY` |
-| `pitch-slides/epim-pitch-deck-manabi.pdf` | PDF único (6 páginas, JPEG comprimido); regenerar con `scripts/build-pitch-pdf.py` |
+| `.pitch/epim-pitch-deck-manabi.pdf` | PDF único (6 páginas, JPEG comprimido); regenerar con `scripts/build-pitch-pdf.py` |
 
 **Audiencia:** Gerencia de Gestión de Cuenca y Recaudación (Manabí) + técnicos.  
 **Énfasis:** campo · validación · mapa · tablero RUAA–EPA (mismo peso).

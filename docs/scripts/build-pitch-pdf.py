@@ -12,6 +12,7 @@ import img2pdf
 
 ROOT = Path(__file__).resolve().parent.parent
 SLIDES_DIR = ROOT / "pitch-slides"
+OUT_DIR = ROOT / ".pitch"
 ORDER = [
     "pitch-01-cover.jpg",
     "pitch-02-problema.jpg",
@@ -20,7 +21,7 @@ ORDER = [
     "pitch-05-flujo.jpg",
     "pitch-06-cierre.jpg",
 ]
-OUT = SLIDES_DIR / "epim-pitch-deck-manabi.pdf"
+OUT = OUT_DIR / "epim-pitch-deck-manabi.pdf"
 MAX_WIDTH = 1920
 JPEG_QUALITY = 82
 
@@ -42,7 +43,7 @@ def main() -> int:
         im.save(buf, format="JPEG", quality=JPEG_QUALITY, optimize=True, progressive=True)
         compressed.append(buf.getvalue())
 
-    SLIDES_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     OUT.write_bytes(img2pdf.convert(compressed))
     mb = OUT.stat().st_size / (1024 * 1024)
     print(f"Guardado: {OUT} ({mb:.2f} MB)")
