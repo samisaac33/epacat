@@ -20,12 +20,12 @@
       "visualSide": "right",
       "label": "PROPUESTA PILOTO · MANABÍ",
       "headline": [
-        { "text": "MEDICIÓN ", "accent": false },
+        { "text": "GESTIÓN ", "accent": false },
         { "text": "INTELIGENTE", "accent": true },
         { "text": " EPIM", "accent": false }
       ],
       "subtitle": "Más recaudación y regularización con evidencia en territorio",
-      "footer": "30 días · Complemento al sistema comercial nacional",
+      "footer": "Complemento al sistema comercial nacional",
       "visual": "Vector illustration: technician with tablet inspecting rural water intake in Manabí, GPS pin and water drop icons, clean modern not sci-fi",
       "useBrandLogo": true,
       "logoNote": "Top right: use the supplied official logo image exactly, on white or light band"
@@ -89,17 +89,16 @@
       "visualSide": "right",
       "label": "CÓMO FUNCIONA",
       "headline": [
-        { "text": "De la ", "accent": false },
-        { "text": "evidencia en campo", "accent": true },
-        { "text": " a la ", "accent": false },
-        { "text": "decisión gerencial", "accent": true }
+        { "text": "De la inspección a la ", "accent": false },
+        { "text": "acción en el CRM", "accent": true }
       ],
       "bullets": [
-        "Brigada registra con foto y GPS (con o sin señal)",
-        "Oficina valida antes de usar el dato",
-        "Mapa + cruce RUAA–EPA apoyan priorizar cobro y regularización"
+        "01 Inspección en territorio",
+        "02 Validación institucional",
+        "03 Cruce y tablero (solo lectura)",
+        "04 Priorización para el sistema comercial"
       ],
-      "visual": "Four-step horizontal infographic with arrows; icon labels ONLY: 01 Inspección, 02 Validación, 03 Mapa y cruce, 04 Lista priorizada — no calendar dates, no day numbers, no prices",
+      "visual": "Four-step horizontal infographic with arrows; icon labels ONLY those four step names in Spanish — no repeat of mobile offline UI, no calendar dates, no prices",
       "useBrandLogo": true,
       "logoNote": "Top right: official logo image exactly as supplied"
     },
@@ -110,15 +109,15 @@
       "visualSide": "right",
       "label": "CIERRE",
       "headline": [
-        { "text": "Más recaudación y regularización con datos que ", "accent": false },
-        { "text": "cierran en territorio", "accent": true }
+        { "text": "Complemento ", "accent": true },
+        { "text": "territorial al sistema comercial", "accent": false }
       ],
       "bullets": [
-        "Lista priorizada RUAA–EPA",
-        "Evidencia GPS/foto para expedientes",
-        "Base para decidir ampliación o integración"
+        "No sustituye la facturación nacional",
+        "Evidencia lista para expedientes y priorización",
+        "La gerencia define ampliación o integración"
       ],
-      "visual": "Field technician with tablet showing map and green validated checklist badge, rural Manabí water context, institutional not political",
+      "visual": "Gerencia reviewing large wall monitor with dashboard KPIs and map, small EPA team in modern office Manabí, no field technician duplicate, institutional",
       "useBrandLogo": true,
       "logoNote": "Top right: official logo image exactly as supplied"
     }
