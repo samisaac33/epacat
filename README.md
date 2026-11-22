@@ -117,6 +117,8 @@ Tras cambiar `NEXT_PUBLIC_*`, redeployar la web (se inlined en el build).
 
 - Especificaciones técnicas (Markdown): [`docs/especificaciones-servicio-epim-infima-cuantia-manabi.md`](docs/especificaciones-servicio-epim-infima-cuantia-manabi.md)
 - Presupuesto referencial / TDR (HTML imprimible): [`docs/presupuesto-referencial-epim-infima-cuantia-manabi.html`](docs/presupuesto-referencial-epim-infima-cuantia-manabi.html)
+- Aviso público SERCOP (plantilla): [`docs/aviso-publico-sercop-epim-infima-manabi.html`](docs/aviso-publico-sercop-epim-infima-manabi.html)
+- Anexo entregables mínimos — piloto 30 días: [`docs/anexo-entregables-minimos-epim-piloto-30d.html`](docs/anexo-entregables-minimos-epim-piloto-30d.html)
 
 Revisión obligatoria por compras y asesoría jurídica de la EPA antes de publicar.
 

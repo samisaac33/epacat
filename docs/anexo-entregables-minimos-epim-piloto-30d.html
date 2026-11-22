@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo Entregables Mínimos - Piloto EPIM 30 días</title>
+<style>
+  :root {
+    --primary: #0f2942;
+    --primary-light: #eef4f9;
+    --accent: #0284c7;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-light: #e2e8f0;
+    --border-color: #cbd5e1;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    color: var(--text-main);
+    background: #f1f5f9;
+    margin: 0;
+    padding: 30px 15px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .document-card {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 42px 48px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-light);
+  }
+  .header-box {
+    text-align: center;
+    border-bottom: 2.5px solid var(--primary);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+  .header-box h2 { margin: 0; color: var(--primary); font-size: 18px; }
+  .header-box h3 { margin: 6px 0 0; font-size: 13.5px; color: var(--text-muted); font-weight: 600; }
+  .header-box .doc-type {
+    margin-top: 8px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .section-title {
+    background: linear-gradient(90deg, var(--primary-light) 0%, #fff 100%);
+    color: var(--primary);
+    padding: 7px 11px;
+    font-size: 12px;
+    font-weight: 700;
+    border-left: 4px solid var(--accent);
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+  }
+  p, li { font-size: 12.5px; text-align: justify; }
+  ul { padding-left: 20px; margin: 6px 0; }
+  table.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 11.5px;
+    margin-top: 8px;
+  }
+  table.data-table th {
+    background: var(--primary);
+    color: #fff;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+  }
+  table.data-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+    vertical-align: top;
+  }
+  table.data-table tr:last-child td { border-bottom: none; }
+  table.data-table td:last-child { border-right: none; }
+  .text-center { text-align: center; }
+  .cronograma-table td:first-child { font-weight: 600; color: var(--primary); white-space: nowrap; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .document-card { box-shadow: none; border: none; }
+    table.data-table th { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="document-card">
+
+  <div class="header-box">
+    <h2>EMPRESA PÚBLICA DEL AGUA - EPA EP</h2>
+    <h3>GERENCIA DE GESTIÓN DE CUENCA Y RECAUDACIÓN (MANABÍ)</h3>
+    <div class="doc-type">Anexo Técnico — Entregables Mínimos y Cronograma (Piloto 30 días)</div>
+  </div>
+
+  <p><strong>Contrato / orden de compra:</strong> Servicio piloto EPIM — ínfima cuantía.<br>
+  <strong>Documento relacionado:</strong> Términos de referencia y presupuesto referencial (ídem expediente).</p>
+
+  <div class="section-title">1. Inicio del plazo e insumos de la EPA</div>
+  <ul>
+    <li>El plazo de <strong>30 días calendario</strong> de ejecución se contará desde el día siguiente a la firma del acta de inicio, la cual solo podrá suscribirse cuando: (a) esté notificada la orden de compra; y (b) la EPA haya entregado al contratista, en un plazo máximo de <strong>cinco (5) días hábiles</strong> desde la orden de compra, los archivos: <strong>un (1) extracto EPA EP</strong> (cuentas/usuarios/puntos de suministro, formato institucional) y <strong>un (1) archivo RUAA</strong> provincial Manabí, más el listado nominal de usuarios institucionales del piloto.</li>
+    <li>La EPA designará un <strong>administrador del contrato</strong> y un <strong>responsable técnico</strong> con facultad de validar entregables.</li>
+  </ul>
+
+  <div class="section-title">2. Metas mínimas operativas del piloto</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Parámetro</th>
+        <th>Mínimo exigible</th>
+        <th>Verificación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Usuarios brigadistas / campo (app móvil)</td>
+        <td class="text-center">5</td>
+        <td>Matriz de accesos activos</td>
+      </tr>
+      <tr>
+        <td>Usuarios administración (web)</td>
+        <td class="text-center">3</td>
+        <td>Matriz de accesos activos</td>
+      </tr>
+      <tr>
+        <td>Inspecciones / visitas sincronizadas con éxito</td>
+        <td class="text-center">80</td>
+        <td>Reporte del sistema + muestra en mapa GIS</td>
+      </tr>
+      <tr>
+        <td>Visitas con evidencia (GPS + fotografía)</td>
+        <td class="text-center">90% de las sincronizadas</td>
+        <td>Auditoría aleatoria 10 registros</td>
+      </tr>
+      <tr>
+        <td>Registros validados en oficina (aprobados o rechazados con comentario)</td>
+        <td class="text-center">100% de las sincronizadas</td>
+        <td>Cola de validación web</td>
+      </tr>
+      <tr>
+        <td>Reporte cruce RUAA–EPA</td>
+        <td class="text-center">1 informe + 1 actualización opcional</td>
+        <td>PDF/CSV + tablero web</td>
+      </tr>
+      <tr>
+        <td>Capacitación</td>
+        <td class="text-center">1 jornada ≥ 4 horas</td>
+        <td>Lista de asistencia y material</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">3. Entregables por rubro presupuestal</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">Rubro</th>
+        <th style="width: 38%;">Entregable</th>
+        <th style="width: 28%;">Criterio de aceptación</th>
+        <th style="width: 12%;">Plazo máx.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">1</td>
+        <td><strong>E1</strong> Acta de inicio; plataforma en nube configurada; app móvil y portal web habilitados con roles EPA.</td>
+        <td>Prueba exitosa login web y móvil; al menos 1 visita de prueba de extremo a extremo.</td>
+        <td class="text-center">Día 7</td>
+      </tr>
+      <tr>
+        <td class="text-center">2</td>
+        <td><strong>E2</strong> Operación SaaS 30 días: captura en campo, sincronización, mapa GIS territorial.</td>
+        <td>Cumplimiento metas mínimas sección 2; mapa visible con visitas georreferenciadas.</td>
+        <td class="text-center">Día 30</td>
+      </tr>
+      <tr>
+        <td class="text-center">3</td>
+        <td><strong>E3</strong> Reporte cruce RUAA–EPA; tablero análisis comercial (solo lectura).</td>
+        <td>Informe con totales, brechas y desalineaciones; acceso tablero sin intervención del proveedor.</td>
+        <td class="text-center">Día 22 (*)</td>
+      </tr>
+      <tr>
+        <td class="text-center">4</td>
+        <td><strong>E4</strong> Capacitación y material didáctico.</td>
+        <td>Acta/lista asistencia; material entregado; ≥ 70% encuesta “satisfecho/muy satisfecho”.</td>
+        <td class="text-center">Día 18</td>
+      </tr>
+      <tr>
+        <td class="text-center">5–6</td>
+        <td><strong>E5</strong> Soporte conforme SLA; exportación datos (CSV/JSON); acta de cierre; anexo interoperabilidad (informativo).</td>
+        <td>Bitácora soporte; exportación completa; acta firmada o con observaciones fundadas.</td>
+        <td class="text-center">Día 30</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size: 11.5px;">(*) Si los insumos RUAA/EPA se entregan tarde, el plazo de E3 se prorroga día a día de igual forma, sin exceder el día 28 del piloto.</p>
+
+  <div class="section-title">4. Cronograma referencial (30 días)</div>
+  <table class="data-table cronograma-table">
+    <thead>
+      <tr>
+        <th>Periodo</th>
+        <th>Actividades del contratista</th>
+        <th>Hitos EPA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Días 1–7</td>
+        <td>Despliegue cloud, configuración, perfiles brigadistas, pruebas integradas.</td>
+        <td>Entrega insumos (días 1–5 hábiles); firma acta inicio.</td>
+      </tr>
+      <tr>
+        <td>Días 8–14</td>
+        <td>Operación campo; monitoreo sync; 2.ª jornada acompañamiento remoto (2 de 4).</td>
+        <td>Habilitación brigadas en terreno.</td>
+      </tr>
+      <tr>
+        <td>Días 15–18</td>
+        <td>Capacitación; ajustes; 3.ª jornada acompañamiento remoto.</td>
+        <td>Asistencia personal designado.</td>
+      </tr>
+      <tr>
+        <td>Días 19–22</td>
+        <td>Procesamiento RUAA–EPA; publicación tablero; validación administrativa intensiva.</td>
+        <td>Revisión preliminar informe cruce.</td>
+      </tr>
+      <tr>
+        <td>Días 23–28</td>
+        <td>Actualización reporte si aplica; soporte; 4.ª jornada acompañamiento remoto.</td>
+        <td>Observaciones técnicas por escrito (si hay).</td>
+      </tr>
+      <tr>
+        <td>Días 29–30</td>
+        <td>Exportación datos; acta cierre; informe de conformidad para pago.</td>
+        <td>Administrador contrato: informe conformidad / acta entrega-recepción.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">5. Aceptación y pago</div>
+  <ul>
+    <li>La EPA dispone de <strong>cinco (5) días hábiles</strong> por entregable para aceptar o formular observaciones técnicas <strong>objetivas y fundadas</strong>.</li>
+    <li>El contratista atenderá una <strong>única ronda</strong> de subsanación por observaciones, en un plazo máximo de <strong>siete (7) días hábiles</strong>, sin costo adicional, dentro del alcance contratado.</li>
+    <li>El <strong>100% del valor</strong> se cancelará contra entrega definitiva del piloto, previo informe favorable del administrador del contrato y acta entrega-recepción, conforme orden de compra.</li>
+  </ul>
+
+  <div class="section-title">6. Exclusiones (recordatorio)</div>
+  <p>No son entregables obligatorios en este anexo: hardware, facturación masiva en producción, integración productiva bidireccional con CRM nacional, ni desarrollos de software fuera del alcance del piloto.</p>
+
+  <p style="text-align: center; margin-top: 32px; font-size: 11px; color: var(--text-muted);">
+    Anexo al expediente de ínfima cuantía — Piloto EPIM Manabí · EPA EP
+  </p>
+
+</div>
+</body>
+</html>
