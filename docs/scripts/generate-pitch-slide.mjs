@@ -102,6 +102,10 @@ async function main() {
       ? path.resolve(__dirname, spec.referenceStyleImage)
       : null);
 
+  const logoPath = slide.useBrandLogo && spec.brand?.logoPath
+    ? path.resolve(__dirname, spec.brand.logoPath)
+    : null;
+
   const parts = [];
   if (refPath && fs.existsSync(refPath)) {
     const b64 = fs.readFileSync(refPath).toString('base64');
@@ -110,6 +114,16 @@ async function main() {
     });
     parts.push({
       text: 'Reference STYLE ONLY (split layout, typography hierarchy, bullet style). Do not copy political content, colors, or people.',
+    });
+  }
+  if (logoPath && fs.existsSync(logoPath)) {
+    const logoB64 = fs.readFileSync(logoPath).toString('base64');
+    parts.push({
+      inlineData: { mimeType: 'image/jpeg', data: logoB64 },
+    });
+    parts.push({
+      text:
+        'OFFICIAL LOGO — reproduce this Empresa Pública del Agua emblem and wordmark EXACTLY (same three blue droplets + grey text). Do not invent alternate marks. Place top-right on the slide with margin; keep logo readable on white or very light band.',
     });
   }
   parts.push({ text: buildPrompt(slide, spec.brand) });

@@ -1,10 +1,11 @@
 {
   "model": "gemini-nano-banana-2.1",
   "aspectRatio": "16:9",
-  "referenceStyleImage": "/home/ubuntu/.cursor/projects/workspace/assets/0f9c5edf-c30d-4e98-a006-a98c1264ecf4.jpg",
+  "referenceStyleImage": "../assets/pitch-style-reference.jpg",
   "brand": {
     "entity": "Empresa Pública del Agua — EPA EP",
     "unit": "Gerencia de Gestión de Cuenca y Recaudación (Manabí)",
+    "logoPath": "../assets/epa-logo.jpg",
     "primary": "#0f2942",
     "accent": "#0284c7",
     "accentLight": "#38bdf8",
@@ -26,7 +27,8 @@
       "subtitle": "Más recaudación y regularización con evidencia en territorio",
       "footer": "30 días · Complemento al sistema comercial nacional",
       "visual": "Vector illustration: technician with tablet inspecting rural water intake in Manabí, GPS pin and water drop icons, clean modern not sci-fi",
-      "logoNote": "Top right: EPA EP institutional water utility logo (letters EPA, blue emblem)"
+      "useBrandLogo": true,
+      "logoNote": "Top right: use the supplied official logo image exactly, on white or light band"
     },
     {
       "id": "02-problema",
@@ -114,7 +116,8 @@
         "Ínfima cuantía · servicio SaaS"
       ],
       "visual": "Professional team meeting approval, EPA colors, institutional not political rally",
-      "logoNote": "EPA EP logo bottom corner"
+      "useBrandLogo": true,
+      "logoNote": "Bottom corner: official logo image exactly as supplied"
     }
   ]
 }
