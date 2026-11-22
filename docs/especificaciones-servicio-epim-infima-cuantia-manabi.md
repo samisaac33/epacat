@@ -31,7 +31,7 @@
 
 ## 2. Objeto contractual
 
-Contratar la **prestación del servicio** de implementación, operación piloto y soporte de la plataforma **EPIM** (*Inteligencia de Medición*), exclusiva para la **jurisdicción Manabí**, incluyendo —de forma opcional en la proforma del proveedor— la **adquisición de licencia de uso temporal** del software correspondiente al periodo del piloto.
+Contratar la **prestación del servicio** de implementación, operación piloto y soporte de la plataforma **EPIM** (*Inteligencia de Medición*), exclusiva para la **jurisdicción Manabí**, orientada al **fortalecimiento de la recaudación por aprovechamiento** y la **identificación y priorización de usuarios a regularizar** (cruce RUAA–extracto EPA, evidencia en campo), incluyendo —de forma opcional en la proforma— **acceso SaaS** durante el piloto.
 
 **En ningún caso** el objeto incluye: sustitución del CRM nacional, facturación masiva de consumo doméstico en producción, ni integración productiva obligatoria con el core nacional (ello podrá tratarse en procesos posteriores, si la institución lo define).
 

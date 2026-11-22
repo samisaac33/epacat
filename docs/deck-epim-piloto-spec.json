@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Piloto EPIM — EPA EP Manabí",
-    "subtitle": "Campo · Validación · Mapa · Conciliación RUAA–EPA",
+    "subtitle": "Más recaudación y regularización en Manabí — campo · validación · mapa · RUAA–EPA",
     "locale": "es_EC",
     "aspectRatio": "16:9",
     "audience": "gerencia_cuenca_recaudacion_manabi",
@@ -11,27 +11,38 @@
       "accentColor": "#0284c7",
       "fontFamily": "Arial"
     },
-    "presentationGoal": "Aprobar conceptualmente el piloto 30 días y alinear brigadas, insumos RUAA/EPA y entregables con la gerencia",
-    "durationMinutes": 18,
-    "version": "1.1.0"
+    "presentationGoal": "Alinear gerencia sobre piloto 30 días como herramienta de incremento de recaudación (priorización) y regularización de usuarios",
+    "durationMinutes": 20,
+    "version": "1.2.0"
   },
   "slides": [
     {
       "id": "cover",
       "layout": "TITLE",
       "title": "Piloto EPIM — Manabí",
-      "subtitle": "Una sola plataforma para inspección en campo y conciliación RUAA–EPA",
+      "subtitle": "Priorizar recaudación y regularizar usuarios — con evidencia en territorio",
       "footer": "Gerencia de Gestión de Cuenca y Recaudación · EPA EP",
       "speakerNotes": "Audiencia: gerencia y técnicos. Objetivo de la reunión: alinear qué haremos en 30 días y qué necesitamos de la gerencia (brigadas, archivos). No es presentación de licitación."
     },
     {
+      "id": "recaudacion-manabi",
+      "layout": "TITLE_AND_BODY",
+      "title": "Recaudación baja en Manabí: el problema",
+      "bullets": [
+        "No basta con tener cuentas en el extracto: debe alinearse con autorizaciones RUAA vigentes.",
+        "Hay usuarios registrados pero desalineados (Activo en EPA sin trámite cobrable, sin cruce, datos dudosos).",
+        "Sin lista priorizada y visitas con evidencia, la gerencia no convierte datos en más cobro ni regularización."
+      ],
+      "speakerNotes": "No culpar al CRM nacional: el piloto alimenta decisiones. Cifras de ejemplo en snapshot demostración si hay demo."
+    },
+    {
       "id": "why-now",
       "layout": "TITLE_AND_BODY",
-      "title": "Por qué ahora",
+      "title": "Por qué un piloto de 30 días",
       "bullets": [
-        "El sistema comercial nacional centraliza facturación; Manabí sigue necesitando control en territorio y sobre aprovechamientos.",
-        "Sin evidencia georreferenciada, las decisiones de cuenca y recaudación dependen de planillas dispersas.",
-        "Un piloto acotado permite medir resultados antes de escalar."
+        "El sistema comercial nacional sigue siendo el canal de facturación; Manabí necesita capa de priorización.",
+        "EPIM entrega en un mes: informe de brechas USD, listas de regularización y campo operativo.",
+        "Riesgo acotado: complemento SaaS, sin reemplazar producción corporativa."
       ],
       "speakerNotes": "Validar con el gerente: reconocer avance del CRM nacional."
     },
@@ -72,9 +83,27 @@
         "1. Campo — App offline/online para brigadas (lectura, GPS, foto).",
         "2. Validación — Oficina aprueba o rechaza cada inspección.",
         "3. Territorio — Mapa GIS de visitas en Manabí.",
-        "4. Recaudación — Informe y tablero cruce RUAA–EPA (solo lectura)."
+        "4. Recaudación y regularización — Informe RUAA–EPA: debido vs asumido, desalineaciones, sin cruce, priorización."
       ],
-      "speakerNotes": "Slide central del deck. Opción: demo 2 min de cada módulo."
+      "speakerNotes": "Slide central. Demo tablero /comercial 3 min: brecha, desalineación, filtros por cuenta."
+    },
+    {
+      "id": "recaudacion-output",
+      "layout": "TITLE_AND_TWO_COLUMNS",
+      "title": "Qué sale del cruce RUAA–EPA",
+      "leftTitle": "Incrementar recaudación (inteligencia)",
+      "leftBullets": [
+        "Monto teórico conforme RUAA (VIGENTE/RENOVADO)",
+        "Cobro asumido en cuentas Activo",
+        "Brecha y priorización por impacto USD"
+      ],
+      "rightTitle": "Regularizar usuarios",
+      "rightBullets": [
+        "Desalineación: Activo EPA + RUAA no cobrable",
+        "Sin cruce RUAA → investigar o regularizar",
+        "Campo confirma titular, punto y caudal"
+      ],
+      "speakerNotes": "Aclarar: el piloto no factura; entrega listas para acciones en CRM nacional y trámites RUAA."
     },
     {
       "id": "flow",
@@ -124,8 +153,8 @@
       "title": "Qué recibe la gerencia al día 30",
       "bullets": [
         "Plataforma operada 30 días + exportación CSV/JSON de datos.",
-        "Informe de brechas y desalineaciones RUAA–EPA.",
-        "Acceso al tablero durante el piloto (y evidencia impresa/PDF).",
+        "Informe de brechas y **lista priorizada** de regularización RUAA–EPA.",
+        "Tablero web + exportación CSV/JSON para gestión comercial y cuenca.",
         "Capacitación realizada y acta de cierre firmada."
       ],
       "speakerNotes": "Conectar con decisiones reales: cobro, regularización, nuevas visitas."
@@ -149,7 +178,8 @@
       "bullets": [
         "≥ 80 visitas sincronizadas; ≥ 90% con GPS y fotografía.",
         "100% de visitas con decisión de validación.",
-        "Informe cruce entregado y presentado a gerencia.",
+        "Informe cruce con, como mínimo, conteos de desalineaciones y sin cruce accionables.",
+        "Lista de al menos 20 casos priorizados acordada con gerencia (muestra del informe).",
         "Encuesta capacitación ≥ 70% satisfechos."
       ],
       "speakerNotes": "Si no se cumple, acta de cierre con observaciones fundadas."

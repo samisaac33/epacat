@@ -6,7 +6,7 @@ Documento narrativo para alinear el **deck de presentación** y la generación p
 
 ## 1. Tesis en una frase
 
-**EPIM es un piloto de servicios en la nube, exclusivo para Manabí, que cierra la brecha entre lo que ocurre en territorio (inspección georreferenciada) y lo que dicen RUAA y el extracto comercial EPA—sin sustituir el CRM/facturación nacional ya contratado.**
+**EPIM es un piloto en la nube para Manabí que convierte la baja recaudación y el caos de registros en listas de acción: dónde cobrar mejor, a quién regularizar y qué confirmar en campo—con cruce RUAA–EPA y evidencia GPS/foto, sin sustituir el CRM/facturación nacional.**
 
 ---
 
@@ -16,17 +16,26 @@ Documento narrativo para alinear el **deck de presentación** y la generación p
 |----------|--------|
 | Complemento territorial y de **calidad de datos** | “Nuevo sistema de facturación” o “reemplazo del CRM” |
 | **Piloto 30 días**, entregables medibles, ínfima cuantía | Proyecto multi-año o “implementación nacional” |
-| **Conciliación RUAA–EPA** y tablero para decisiones de recaudación | Prometer integración productiva al core sin estar en el contrato |
+| **Lista priorizada** de oportunidad de recaudación y casos a regularizar (RUAA vs EPA) | Prometer incremento automático de ingresos sin acción gerencial en el CRM nacional |
+| Tablero de **brechas, desalineaciones y sin cruce** | Prometer integración productiva al core sin estar en el contrato |
 | App **offline**, evidencia GPS/foto, validación en oficina | Hardware incluido o certificaciones ISO no contratadas |
 | SaaS + soporte; propiedad de datos en la EPA | “Consultoría” como rubro principal |
 
 ---
 
-## 3. Problema institucional (3 dolores)
+## 3. Problema institucional (Manabí)
 
-1. **Territorio:** inspecciones en zonas con conectividad irregular; información que llega tarde o incompleta.
-2. **Coherencia normativa–comercial:** cuentas activas en reportes EPA con trámites RUAA no alineados → riesgo de **sobre-/sub-recaudación** o decisiones sin evidencia.
-3. **Visibilidad:** gerencia de cuenca no dispone de un **mapa y tablero único** del piloto para Manabí, paralelo al sistema corporativo.
+1. **Recaudación baja:** no siempre se traduce en **quién debería pagar** (RUAA vigente) vs **quién figura cobrándose** (extracto EPA).
+2. **Usuarios a regularizar:** registros activos o dispersos **sin alineación** con autorización (desalineaciones, sin cruce, baja confianza del match).
+3. **Territorio sin evidencia:** sin inspección georreferenciada, la gerencia no puede **cerrar el ciclo** (priorizar visita → validar → decidir en CRM nacional).
+
+## 3.1 Qué entrega el piloto vs qué hace la gerencia después
+
+| Entrega EPIM (30 días) | Acción institucional posterior |
+|------------------------|--------------------------------|
+| Informe y tablero: debido vs asumido, brechas USD, desalineaciones, sin cruce | Priorizar casos de mayor impacto |
+| Listas exportables (CSV/JSON) | Alta, baja, renovación RUAA, ajuste en sistema comercial nacional |
+| Visitas con GPS/foto en casos piloto | Expediente de regularización con evidencia |
 
 ---
 
@@ -80,7 +89,7 @@ Mensaje: el piloto **genera evidencia** para decidir ampliación; no es un ERP.
 | **Tono** | Operativo y decisorio; contratación solo como slide resumen |
 | **Duración oral** | 15–20 minutos + demo opcional del tablero |
 
-Mensaje rector para gerencia: *«En 30 días tendremos evidencia en territorio y un informe de brecha RUAA–EPA, sin tocar el sistema comercial nacional.»*
+Mensaje rector para gerencia: *«En 30 días tendremos un mapa de oportunidad de recaudación en Manabí y una lista priorizada de usuarios a regularizar, con evidencia de campo—nota el camino; el cobro efectivo sigue en el sistema comercial nacional.»*
 
 ---
 
