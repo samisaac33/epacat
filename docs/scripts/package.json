@@ -5,6 +5,7 @@
   "scripts": {
     "generate:slides": "node generate-google-slides-deck.mjs",
     "generate:deck-images": "node generate-deck-images.mjs",
+    "generate:pitch-slide": "node generate-pitch-slide.mjs",
     "auth:google": "node google-auth-setup.mjs"
   },
   "dependencies": {

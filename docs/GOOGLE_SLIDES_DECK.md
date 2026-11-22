@@ -7,7 +7,8 @@
 | `deck-epim-piloto-spec.json` | Texto y estructura de cada diapositiva (fuente para la API) |
 | `propuesta-epim-piloto-manabi-afinada.md` | Narrativa afinada (gerencia, énfasis equilibrado) |
 | `scripts/generate-google-slides-deck.mjs` | Generador vía Google Slides API |
-| `deck-slide-images.json` + `scripts/generate-deck-images.mjs` | **Máx. 6** imágenes 16:9 (`gemini-nano-banana-2.1`); requiere `GEMINI_API_KEY` |
+| `deck-slide-images.json` + `scripts/generate-deck-images.mjs` | Ilustraciones sin texto (enfoque antiguo; no usar para pitch) |
+| `pitch-slides-spec.json` + `scripts/generate-pitch-slide.mjs` | **6 slides de pitch** con texto en español, estilo regente 50/50, colores EPA; una slide por comando; `gemini-nano-banana-2.1` + `GEMINI_API_KEY` |
 
 **Audiencia:** Gerencia de Gestión de Cuenca y Recaudación (Manabí) + técnicos.  
 **Énfasis:** campo · validación · mapa · tablero RUAA–EPA (mismo peso).

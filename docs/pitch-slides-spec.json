@@ -1,0 +1,120 @@
+{
+  "model": "gemini-nano-banana-2.1",
+  "aspectRatio": "16:9",
+  "referenceStyleImage": "/home/ubuntu/.cursor/projects/workspace/assets/0f9c5edf-c30d-4e98-a006-a98c1264ecf4.jpg",
+  "brand": {
+    "entity": "Empresa Pública del Agua — EPA EP",
+    "unit": "Gerencia de Gestión de Cuenca y Recaudación (Manabí)",
+    "primary": "#0f2942",
+    "accent": "#0284c7",
+    "accentLight": "#38bdf8",
+    "textOnDark": "#ffffff",
+    "note": "NO estilo electoral ni candidatos; pitch institucional técnico."
+  },
+  "slides": [
+    {
+      "id": "01-cover",
+      "file": "pitch-01-cover.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "PROPUESTA PILOTO · MANABÍ",
+      "headline": [
+        { "text": "MEDICIÓN ", "accent": false },
+        { "text": "INTELIGENTE", "accent": true },
+        { "text": " EPIM", "accent": false }
+      ],
+      "subtitle": "Más recaudación y regularización con evidencia en territorio",
+      "footer": "30 días · Complemento al sistema comercial nacional",
+      "visual": "Vector illustration: technician with tablet inspecting rural water intake in Manabí, GPS pin and water drop icons, clean modern not sci-fi",
+      "logoNote": "Top right: EPA EP institutional water utility logo (letters EPA, blue emblem)"
+    },
+    {
+      "id": "02-problema",
+      "file": "pitch-02-problema.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "EL RETO",
+      "headline": [
+        { "text": "RECAUDACIÓN BAJA ", "accent": false },
+        { "text": "EN MANABÍ", "accent": true }
+      ],
+      "bullets": [
+        "Cuentas en extracto sin respaldo RUAA vigente",
+        "Usuarios activos desalineados o sin cruce",
+        "Sin lista priorizada ni evidencia de campo"
+      ],
+      "visual": "Flat illustration worried manager at desk with scattered papers and leaking pipe metaphor, cyan and navy palette"
+    },
+    {
+      "id": "03-solucion",
+      "file": "pitch-03-solucion.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "LA SOLUCIÓN",
+      "headline": [
+        { "text": "Tu brigada ", "accent": false },
+        { "text": "registra en campo", "accent": true },
+        { "text": " aunque no haya señal", "accent": false }
+      ],
+      "bullets": [
+        "App offline con foto, GPS y lectura",
+        "Oficina valida antes de decidir",
+        "Sincronización cuando vuelve la red"
+      ],
+      "visual": "Smartphone mockup showing field inspection form and map, realistic product pitch style"
+    },
+    {
+      "id": "04-cruce",
+      "file": "pitch-04-cruce.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "RUAA · EPA",
+      "headline": [
+        { "text": "Lista priorizada para ", "accent": false },
+        { "text": "cobrar y regularizar", "accent": true }
+      ],
+      "bullets": [
+        "Debido vs cobro asumido en USD",
+        "Desalineaciones y sin cruce",
+        "Tablero web solo lectura"
+      ],
+      "visual": "Dashboard mockup with charts and table rows, institutional analytics UI navy and cyan"
+    },
+    {
+      "id": "05-flujo",
+      "file": "pitch-05-flujo.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "CÓMO FUNCIONA",
+      "headline": [
+        { "text": "De la visita ", "accent": false },
+        { "text": "a la decisión", "accent": true }
+      ],
+      "bullets": [
+        "Inspección → validación → mapa",
+        "Informe cruce día ~22",
+        "Exportación y acta día 30"
+      ],
+      "visual": "Four-step horizontal infographic icons with arrows, minimal text inside icons only numbers 1-4"
+    },
+    {
+      "id": "06-cierre",
+      "file": "pitch-06-cierre.jpg",
+      "layout": "split",
+      "visualSide": "left",
+      "label": "PRÓXIMO PASO",
+      "headline": [
+        { "text": "Piloto ", "accent": false },
+        { "text": "30 días", "accent": true },
+        { "text": " · USD 9.950", "accent": false }
+      ],
+      "bullets": [
+        "Entregar extracto EPA y RUAA en 5 días hábiles",
+        "5 brigadas + 3 administración",
+        "Ínfima cuantía · servicio SaaS"
+      ],
+      "visual": "Professional team meeting approval, EPA colors, institutional not political rally",
+      "logoNote": "EPA EP logo bottom corner"
+    }
+  ]
+}
