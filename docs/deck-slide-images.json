@@ -1,0 +1,45 @@
+{
+  "model": "gemini-nano-banana-2.1",
+  "aspectRatio": "16:9",
+  "maxRecommended": 6,
+  "note": "Solo imágenes de impacto visual; el resto del deck es texto en Google Slides.",
+  "styleSuffix": "Professional institutional pitch for Ecuador EPA Manabí water utility. Navy #0f2942 and cyan #0284c7, modern flat illustration, no text, no watermarks, 16:9 with empty space for titles.",
+  "slides": [
+    {
+      "id": "cover",
+      "filename": "01-cover.jpg",
+      "deckSlideIds": ["cover"],
+      "prompt": "Hero: field technician with tablet at water intake in Manabí, smart water EPIM pilot, wide cinematic."
+    },
+    {
+      "id": "recaudacion-manabi",
+      "filename": "02-recaudacion-manabi.jpg",
+      "deckSlideIds": ["recaudacion-manabi"],
+      "prompt": "Low revenue metaphor: water leaking from cracked pipe equals lost money, serious institutional tone."
+    },
+    {
+      "id": "pillars",
+      "filename": "03-pillars.jpg",
+      "deckSlideIds": ["pillars", "problem-balanced"],
+      "prompt": "Four equal pillars: mobile offline, validation clipboard, GIS map pins, analytics dashboard, isometric."
+    },
+    {
+      "id": "recaudacion-output",
+      "filename": "04-recaudacion-output.jpg",
+      "deckSlideIds": ["recaudacion-output"],
+      "prompt": "Priority list users to regularize plus revenue recovery symbols, abstract RUAA and EPA document stacks."
+    },
+    {
+      "id": "flow",
+      "filename": "05-flow.jpg",
+      "deckSlideIds": ["flow", "roles", "insumos", "deliverables", "timeline", "metrics"],
+      "prompt": "Horizontal process: field GPS photo, cloud sync, office approval, map and analytics outcome, cyan arrows."
+    },
+    {
+      "id": "decisions",
+      "filename": "06-decisions.jpg",
+      "deckSlideIds": ["decisions", "closing", "why-now", "not-is", "investment", "after-pilot"],
+      "prompt": "Professional meeting approval to start 30-day pilot, conference table, water utility branding colors."
+    }
+  ]
+}
