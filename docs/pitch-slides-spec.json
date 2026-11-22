@@ -89,35 +89,38 @@
       "visualSide": "right",
       "label": "CÓMO FUNCIONA",
       "headline": [
-        { "text": "De la visita ", "accent": false },
-        { "text": "a la decisión", "accent": true }
+        { "text": "De la ", "accent": false },
+        { "text": "evidencia en campo", "accent": true },
+        { "text": " a la ", "accent": false },
+        { "text": "decisión gerencial", "accent": true }
       ],
       "bullets": [
-        "Inspección → validación → mapa",
-        "Informe cruce día ~22",
-        "Exportación y acta día 30"
+        "Brigada registra con foto y GPS (con o sin señal)",
+        "Oficina valida antes de usar el dato",
+        "Mapa + cruce RUAA–EPA apoyan priorizar cobro y regularización"
       ],
-      "visual": "Four-step horizontal infographic icons with arrows, minimal text inside icons only numbers 1-4"
+      "visual": "Four-step horizontal infographic with arrows; icon labels ONLY: 01 Inspección, 02 Validación, 03 Mapa y cruce, 04 Lista priorizada — no calendar dates, no day numbers, no prices",
+      "useBrandLogo": true,
+      "logoNote": "Top right: official logo image exactly as supplied"
     },
     {
       "id": "06-cierre",
       "file": "pitch-06-cierre.jpg",
       "layout": "split",
-      "visualSide": "left",
-      "label": "PRÓXIMO PASO",
+      "visualSide": "right",
+      "label": "CIERRE",
       "headline": [
-        { "text": "Piloto ", "accent": false },
-        { "text": "30 días", "accent": true },
-        { "text": " · USD 9.950", "accent": false }
+        { "text": "Más recaudación y regularización con datos que ", "accent": false },
+        { "text": "cierran en territorio", "accent": true }
       ],
       "bullets": [
-        "Entregar extracto EPA y RUAA en 5 días hábiles",
-        "5 brigadas + 3 administración",
-        "Ínfima cuantía · servicio SaaS"
+        "Lista priorizada RUAA–EPA",
+        "Evidencia GPS/foto para expedientes",
+        "Base para decidir ampliación o integración"
       ],
-      "visual": "Professional team meeting approval, EPA colors, institutional not political rally",
+      "visual": "Field technician with tablet showing map and green validated checklist badge, rural Manabí water context, institutional not political",
       "useBrandLogo": true,
-      "logoNote": "Bottom corner: official logo image exactly as supplied"
+      "logoNote": "Top right: official logo image exactly as supplied"
     }
   ]
 }

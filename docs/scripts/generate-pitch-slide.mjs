@@ -58,6 +58,8 @@ ${slide.logoNote ? slide.logoNote + '. ' : ''}Entity: ${brand.entity}. NOT polit
 
 Visual panel: ${slide.visual}
 
+Pitch deck rules: NEVER show prices, USD, IVA, contract duration, calendar dates, or delivery milestones (día 22, día 30, etc.) anywhere on the slide unless that exact phrase appears in the text block above (it should not).
+
 No watermark, no lorem ipsum, crisp edges suitable for Google Slides PDF export.`;
 }
 
