@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "title": "Piloto EPIM — EPA EP Manabí",
+    "subtitle": "Campo · Validación · Mapa · Conciliación RUAA–EPA",
+    "locale": "es_EC",
+    "aspectRatio": "16:9",
+    "audience": "gerencia_cuenca_recaudacion_manabi",
+    "emphasis": "balanced_four_pillars",
+    "theme": {
+      "primaryColor": "#0f2942",
+      "accentColor": "#0284c7",
+      "fontFamily": "Arial"
+    },
+    "presentationGoal": "Aprobar conceptualmente el piloto 30 días y alinear brigadas, insumos RUAA/EPA y entregables con la gerencia",
+    "durationMinutes": 18,
+    "version": "1.1.0"
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "layout": "TITLE",
+      "title": "Piloto EPIM — Manabí",
+      "subtitle": "Una sola plataforma para inspección en campo y conciliación RUAA–EPA",
+      "footer": "Gerencia de Gestión de Cuenca y Recaudación · EPA EP",
+      "speakerNotes": "Audiencia: gerencia y técnicos. Objetivo de la reunión: alinear qué haremos en 30 días y qué necesitamos de la gerencia (brigadas, archivos). No es presentación de licitación."
+    },
+    {
+      "id": "why-now",
+      "layout": "TITLE_AND_BODY",
+      "title": "Por qué ahora",
+      "bullets": [
+        "El sistema comercial nacional centraliza facturación; Manabí sigue necesitando control en territorio y sobre aprovechamientos.",
+        "Sin evidencia georreferenciada, las decisiones de cuenca y recaudación dependen de planillas dispersas.",
+        "Un piloto acotado permite medir resultados antes de escalar."
+      ],
+      "speakerNotes": "Validar con el gerente: reconocer avance del CRM nacional."
+    },
+    {
+      "id": "problem-balanced",
+      "layout": "TITLE_AND_TWO_COLUMNS",
+      "title": "Cuatro retos en equilibrio",
+      "leftTitle": "En campo y en datos",
+      "leftBullets": [
+        "Conectividad irregular en inspecciones",
+        "Falta de GPS y foto asociados al registro",
+        "Cruce RUAA vs extracto EPA poco visible"
+      ],
+      "rightTitle": "Para la gerencia",
+      "rightBullets": [
+        "Sin cola única de validación de lo capturado",
+        "Sin mapa territorial del avance",
+        "Brechas de cobro difíciles de explicar"
+      ],
+      "speakerNotes": "Énfasis equilibrado: ni solo campo ni solo Excel comercial."
+    },
+    {
+      "id": "not-is",
+      "layout": "TITLE_AND_BODY",
+      "title": "Alcance claro del piloto",
+      "bullets": [
+        "Sí: servicio en la nube 30 días, 4 capacidades (campo, validación, mapa, tablero RUAA–EPA).",
+        "No: reemplazar CRM/facturación nacional, ni facturación masiva en producción.",
+        "Los datos del piloto son de la EPA; al cierre se exportan."
+      ],
+      "speakerNotes": "Una sola slide para evitar fricción política interna."
+    },
+    {
+      "id": "pillars",
+      "layout": "TITLE_AND_BODY",
+      "title": "Cuatro pilares del piloto (mismo peso)",
+      "bullets": [
+        "1. Campo — App offline/online para brigadas (lectura, GPS, foto).",
+        "2. Validación — Oficina aprueba o rechaza cada inspección.",
+        "3. Territorio — Mapa GIS de visitas en Manabí.",
+        "4. Recaudación — Informe y tablero cruce RUAA–EPA (solo lectura)."
+      ],
+      "speakerNotes": "Slide central del deck. Opción: demo 2 min de cada módulo."
+    },
+    {
+      "id": "flow",
+      "layout": "TITLE_AND_BODY",
+      "title": "Flujo de trabajo conjunto",
+      "bullets": [
+        "Brigada inspecciona → guarda offline si no hay red → sincroniza.",
+        "Personal de gerencia valida en portal web.",
+        "Mapa se actualiza; al día ~22 se entrega cruce RUAA–EPA.",
+        "Gerencia usa tablero para priorizar acciones de recaudación o regularización."
+      ],
+      "speakerNotes": "Preguntar quiénes serán los 5 usuarios campo y 3 de oficina."
+    },
+    {
+      "id": "roles",
+      "layout": "TITLE_AND_TWO_COLUMNS",
+      "title": "Roles en la gerencia",
+      "leftTitle": "En territorio (5 usuarios)",
+      "leftBullets": [
+        "Brigadistas de inspección",
+        "Dispositivo y datos móviles a cargo EPA",
+        "Meta: 80 visitas sincronizadas en 30 días"
+      ],
+      "rightTitle": "En oficina (3 usuarios)",
+      "rightBullets": [
+        "Validación y supervisión",
+        "Consulta mapa y tablero",
+        "Acompañamiento en capacitación (4 h)"
+      ],
+      "speakerNotes": "Pedir nombres tentativos antes de publicar compras."
+    },
+    {
+      "id": "insumos",
+      "layout": "TITLE_AND_BODY",
+      "title": "Qué debe entregar la gerencia",
+      "bullets": [
+        "En los primeros 5 días hábiles tras la orden de compra: extracto EPA EP + archivo RUAA Manabí.",
+        "Listado de usuarios del piloto (correo institucional).",
+        "Designación de administrador del contrato y responsable técnico.",
+        "Sin estos insumos, el plazo de 30 días no inicia."
+      ],
+      "speakerNotes": "Compromiso institucional crítico; anotar en acta."
+    },
+    {
+      "id": "deliverables",
+      "layout": "TITLE_AND_BODY",
+      "title": "Qué recibe la gerencia al día 30",
+      "bullets": [
+        "Plataforma operada 30 días + exportación CSV/JSON de datos.",
+        "Informe de brechas y desalineaciones RUAA–EPA.",
+        "Acceso al tablero durante el piloto (y evidencia impresa/PDF).",
+        "Capacitación realizada y acta de cierre firmada."
+      ],
+      "speakerNotes": "Conectar con decisiones reales: cobro, regularización, nuevas visitas."
+    },
+    {
+      "id": "timeline",
+      "layout": "TITLE_AND_BODY",
+      "title": "Cronograma de 30 días",
+      "bullets": [
+        "Días 1–7: despliegue y prueba de extremo a extremo.",
+        "Días 8–21: operación intensiva en campo + validación.",
+        "Días 15–18: capacitación.",
+        "Días 22–30: reporte RUAA–EPA, cierre y exportación."
+      ],
+      "speakerNotes": "Calendario en pared; marcar día de entrega RUAA/EPA."
+    },
+    {
+      "id": "metrics",
+      "layout": "TITLE_AND_BODY",
+      "title": "Indicadores de éxito del piloto",
+      "bullets": [
+        "≥ 80 visitas sincronizadas; ≥ 90% con GPS y fotografía.",
+        "100% de visitas con decisión de validación.",
+        "Informe cruce entregado y presentado a gerencia.",
+        "Encuesta capacitación ≥ 70% satisfechos."
+      ],
+      "speakerNotes": "Si no se cumple, acta de cierre con observaciones fundadas."
+    },
+    {
+      "id": "investment",
+      "layout": "TITLE_AND_BODY",
+      "title": "Inversión y trámite (resumen)",
+      "bullets": [
+        "Presupuesto referencial: USD 9.950 (+ IVA), contratación por ínfima cuantía (servicio SaaS).",
+        "La gerencia aporta requerimiento; compras publica y ejecuta orden de compra.",
+        "Pago único contra entrega del piloto."
+      ],
+      "speakerNotes": "No detallar ítems; remitir a TDR impreso. Jurídica valida artículo."
+    },
+    {
+      "id": "after-pilot",
+      "layout": "TITLE_AND_BODY",
+      "title": "Si el piloto funciona",
+      "bullets": [
+        "Evidencia para ampliar a más cantones o convenio SaaS anual.",
+        "Integración con sistema nacional solo si la corporación lo define.",
+        "Esta presentación no compromete fase 2 ni montos adicionales."
+      ],
+      "speakerNotes": "Horizonte sin presión comercial."
+    },
+    {
+      "id": "decisions",
+      "layout": "TITLE_AND_BODY",
+      "title": "Decisiones solicitadas hoy",
+      "bullets": [
+        "Aval del concepto piloto y de las cuatro capacidades.",
+        "Compromiso de entregar extracto EPA y RUAA en plazo.",
+        "Propuesta de brigadas (5 + 3) y fecha tentativa de kickoff.",
+        "Autorización para elevar TDR a compras públicas."
+      ],
+      "speakerNotes": "Cerrar con fecha de próxima reunión y demo en vivo si aplica."
+    },
+    {
+      "id": "closing",
+      "layout": "TITLE",
+      "title": "¿Preguntas?",
+      "subtitle": "EPIM · Piloto 30 días · Complemento al sistema nacional",
+      "footer": "Anexos: TDR, entregables mínimos, tablero de demostración",
+      "speakerNotes": "Ofrecer recorrido por app móvil y /comercial en demo."
+    }
+  ]
+}
