@@ -3,210 +3,293 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Presupuesto Referencial - EPIM Piloto Manabí</title>
+<title>Presupuesto Referencial - Piloto EPIM / EPA EP</title>
 <style>
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 40px auto;
-    max-width: 900px;
-    color: #222;
-    line-height: 1.4;
+  :root {
+    --primary: #0f2942;
+    --primary-light: #eef4f9;
+    --accent: #0284c7;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --border-light: #e2e8f0;
+    --bg-alt: #f8fafc;
   }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-main);
+    background-color: #f1f5f9;
+    margin: 0;
+    padding: 30px 15px;
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .document-card {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 45px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-light);
+  }
+
   .header-box {
     text-align: center;
-    border-bottom: 3px solid #0f4c81;
+    border-bottom: 2.5px solid var(--primary);
     padding-bottom: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
   .header-box h2 {
     margin: 0;
-    color: #0f4c81;
-    font-size: 20px;
+    color: var(--primary);
+    font-size: 19px;
     letter-spacing: 0.5px;
   }
   .header-box h3 {
     margin: 5px 0 0 0;
-    font-size: 15px;
-    color: #444;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
   }
   .header-box .doc-type {
-    margin-top: 10px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #777;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
     text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
+
   .section-title {
-    background-color: #f0f4f8;
-    color: #0f4c81;
-    padding: 8px 12px;
-    font-size: 13px;
-    font-weight: bold;
-    border-left: 5px solid #0f4c81;
+    background: linear-gradient(90deg, var(--primary-light) 0%, #ffffff 100%);
+    color: var(--primary);
+    padding: 7px 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 5px 5px 0;
     margin-top: 25px;
     margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
+
   .general-data p {
-    margin: 6px 0;
-    font-size: 13px;
-  }
-  table.budget-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    font-size: 11.5px;
-  }
-  table.budget-table th, table.budget-table td {
-    border: 1px solid #c0c0c0;
-    padding: 6px 8px;
-  }
-  table.budget-table th {
-    background-color: #e9ecef;
-    color: #333;
-    font-weight: 600;
-    text-align: center;
-  }
-  .category-row {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    color: #0f4c81;
-  }
-  .text-center { text-align: center; }
-  .text-right { text-align: right; }
-  .total-row {
-    font-weight: bold;
-    background-color: #fbfbfb;
-  }
-  .total-highlight {
-    background-color: #eaf2f8;
-    color: #0f4c81;
+    margin: 5px 0;
     font-size: 12.5px;
   }
-  .terms-box {
-    margin-top: 25px;
+
+  table.budget-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 11.5px;
+  }
+
+  table.budget-table th {
+    background-color: var(--primary);
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    padding: 9px 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+  }
+
+  table.budget-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+  }
+
+  table.budget-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  table.budget-table td:last-child {
+    border-right: none;
+  }
+
+  .category-row td {
+    background-color: #f1f7fc !important;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 11.5px;
+    border-top: 1px solid #d0e1f0;
+    border-bottom: 1px solid #d0e1f0;
+    border-left: 3px solid var(--accent);
+    padding: 7px 10px;
+  }
+
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+
+  .total-row td {
+    background-color: var(--bg-alt);
     font-size: 12px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-top: 1px solid var(--border-light);
   }
+
+  .total-highlight td {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    border-top: 2px solid #bae6fd !important;
+  }
+
+  .note-box {
+    margin-top: 20px;
+    padding: 12px 16px;
+    background-color: #fffbeb;
+    border: 1px solid #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 6px;
+    color: #92400e;
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+
   .terms-box ol {
-    margin: 6px 0;
+    margin: 8px 0;
     padding-left: 20px;
   }
+
   .terms-box li {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    color: #334155;
+    text-align: justify;
   }
-  .terms-box ul {
-    margin: 4px 0 8px 0;
-    padding-left: 20px;
-  }
+
   table.signatures-table {
     width: 100%;
+    margin-top: 50px;
     border-collapse: collapse;
-    margin-top: 60px;
     border: none;
   }
+
   table.signatures-table td {
-    border: none;
     width: 50%;
+    border: none;
     text-align: center;
-    font-size: 12px;
-    vertical-align: bottom;
+    vertical-align: top;
+    padding: 0 25px;
   }
-  .signature-line {
-    width: 75%;
-    margin: 0 auto 8px auto;
-    border-top: 1px solid #333;
+
+  .signature-card {
+    border-top: 1.5px solid var(--border-color);
+    padding-top: 10px;
   }
-  .note-box {
+
+  .signature-card strong {
+    color: var(--primary);
     font-size: 11.5px;
-    color: #555;
-    margin-top: 12px;
-    padding: 10px 12px;
-    background: #fafafa;
-    border-left: 3px solid #ccc;
+    display: block;
+    margin-bottom: 2px;
   }
+
+  .signature-card span {
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+
   @media print {
-    body { margin: 20px; font-size: 11px; }
-    .section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    table.budget-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .category-row { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .total-highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background-color: #ffffff; padding: 0; }
+    .document-card { border: none; box-shadow: none; padding: 5px; }
+    table.budget-table th { background-color: #0f2942 !important; color: #ffffff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .category-row td, .total-highlight td, .note-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    tr, .signatures-table { page-break-inside: avoid; }
   }
 </style>
 </head>
 <body>
 
+<div class="document-card">
+
   <div class="header-box">
     <h2>EMPRESA PÚBLICA DEL AGUA - EPA EP</h2>
-    <h3>GERENCIA MANABÍ — INTELIGENCIA DE MEDICIÓN (EPIM)</h3>
-    <div class="doc-type">Términos de Referencia / Estudio de Presupuesto Referencial (Ínfima Cuantía)</div>
+    <h3>GERENCIA DE GESTIÓN DE CUENCA Y RECAUDACIÓN (MANABÍ)</h3>
+    <div class="doc-type">Términos de Referencia / Presupuesto Referencial (Ínfima Cuantía)</div>
   </div>
 
   <div class="section-title">1. DATOS GENERALES DEL PROCESO</div>
   <div class="general-data">
-    <p><strong>OBJETO DEL CONTRATO:</strong> «Prestación del servicio de implementación, operación piloto y soporte de la plataforma EPIM (Inteligencia de Medición), complementaria al sistema nacional de gestión comercial, exclusiva para la jurisdicción Manabí: registro en campo offline, validación en oficina, mapa territorial, procesamiento de cruce RUAA–extracto EPA EP y tablero de análisis comercial, más licencia de uso del software durante el piloto».</p>
-    <p><strong>UBICACIÓN:</strong> Provincia de Manabí, Ecuador (prestación principal remota; capacitación presencial en sede EPA o modalidad virtual sincrónica según disponibilidad institucional — Portoviejo / Manta).</p>
-    <p><strong>PLAZO DE EJECUCIÓN:</strong> 105 días calendario a partir de la notificación de la Orden de Compra/Servicio (incluye 90 días de operación piloto).</p>
-    <p><strong>PROCEDIMIENTO:</strong> Ínfima Cuantía (Art. 52.1 Ley Orgánica del Sistema Nacional de Contratación Pública y normativa conexa vigente).</p>
-    <p><strong>NATURALEZA:</strong> Adquisición de <strong>bienes intangibles</strong> (licencia de uso) y <strong>prestación de servicios</strong> tecnológicos. No constituye contratación de consultoría ni sustitución del CRM/facturación nacional.</p>
+    <p><strong>OBJETO DEL CONTRATO:</strong> «Servicio de implementación y operación de un piloto tecnológico de 30 días para georreferenciación en campo, conciliación comercial de extracciones de agua cruda contra catastro RUAA y visualización analítica en la provincia de Manabí para la Empresa Pública del Agua EPA EP».</p>
+    <p><strong>UBICACIÓN:</strong> Provincia de Manabí (Operación de campo y sede administrativa EPA EP).</p>
+    <p><strong>PLAZO DE EJECUCIÓN:</strong> 30 días calendario, contados a partir de la notificación de la Orden de Compra/Servicio y entrega de insumos de información base.</p>
+    <p><strong>TIPO DE CONTRATACIÓN:</strong> Ínfima Cuantía (Art. 52.1 Ley Orgánica del Sistema Nacional de Contratación Pública).</p>
   </div>
 
   <div class="section-title">2. TABLA DE PRESUPUESTO REFERENCIAL</div>
   <table class="budget-table">
     <thead>
       <tr>
-        <th style="width: 5%;">Ít.</th>
-        <th style="width: 55%;">Descripción del Bien / Servicio</th>
-        <th style="width: 7%;">Cant.</th>
+        <th style="width: 6%;">Ít.</th>
+        <th style="width: 54%;">Descripción del Bien / Servicio</th>
+        <th style="width: 8%;">Cant.</th>
         <th style="width: 8%;">Unidad</th>
         <th style="width: 12%;">P. Unit. ($)</th>
-        <th style="width: 13%;">P. Total ($)</th>
+        <th style="width: 12%;">P. Total ($)</th>
       </tr>
     </thead>
     <tbody>
       <tr class="category-row">
-        <td colspan="6">1. HABILITACIÓN E IMPLEMENTACIÓN DE LA PLATAFORMA EPIM</td>
+        <td colspan="6">1. DESPLIEGUE, CONFIGURACIÓN Y PUESTA EN MARCHA</td>
       </tr>
       <tr>
         <td class="text-center">1.1</td>
-        <td>Despliegue de entorno piloto (API, base de datos, portal web), configuración de roles (técnico de campo, administración, administrador), parámetros provincia Manabí y credenciales para personal designado por la EPA</td>
+        <td>Parametrización de la plataforma en la nube (backend, base de datos segura y roles de usuario para personal EPA)</td>
         <td class="text-center">1</td>
         <td class="text-center">gbl</td>
-        <td class="text-right">1.150,00</td>
-        <td class="text-right">1.150,00</td>
+        <td class="text-right">1.480,00</td>
+        <td class="text-right">1.480,00</td>
       </tr>
       <tr>
         <td class="text-center">1.2</td>
-        <td>Acta de inicio, cronograma, matriz de accesos y manual de operación básica del piloto (formato digital)</td>
+        <td>Configuración del aplicativo móvil offline/online y perfiles para brigadistas de inspección en campo en Manabí</td>
         <td class="text-center">1</td>
         <td class="text-center">gbl</td>
-        <td class="text-right">530,00</td>
-        <td class="text-right">530,00</td>
+        <td class="text-right">980,00</td>
+        <td class="text-right">980,00</td>
       </tr>
 
       <tr class="category-row">
-        <td colspan="6">2. OPERACIÓN PILOTO — MEDICIÓN EN CAMPO, VALIDACIÓN Y MAPA</td>
+        <td colspan="6">2. SUSCRIPCIÓN EN LA NUBE Y VISUALIZACIÓN TERRITORIAL (PILOTO 30 DÍAS)</td>
       </tr>
       <tr>
         <td class="text-center">2.1</td>
-        <td>Servicio de operación de aplicación móvil offline-first (registro de visita: abonado/medidor, lectura, GPS, fotografía, sincronización); hasta 5 usuarios técnicos y mínimo 200 visitas sincronizadas en el periodo piloto</td>
-        <td class="text-center">90</td>
+        <td>Servicio de suscripción en la nube (SaaS) a la plataforma móvil y web para captura e inspección técnica durante el piloto</td>
+        <td class="text-center">30</td>
         <td class="text-center">días</td>
-        <td class="text-right">22,00</td>
-        <td class="text-right">1.980,00</td>
+        <td class="text-right">33,50</td>
+        <td class="text-right">1.005,00</td>
       </tr>
       <tr>
         <td class="text-center">2.2</td>
-        <td>Servicio de portal web de validación (cola de visitas, aprobación/rechazo con comentario, consulta de abonados y medidores en alcance piloto); hasta 3 usuarios de administración</td>
-        <td class="text-center">90</td>
+        <td>Servicio de soporte y monitoreo operativo continuo del módulo móvil y sincronización de datos de campo</td>
+        <td class="text-center">30</td>
         <td class="text-center">días</td>
-        <td class="text-right">11,50</td>
+        <td class="text-right">34,50</td>
         <td class="text-right">1.035,00</td>
       </tr>
       <tr>
         <td class="text-center">2.3</td>
         <td>Servicio de visualización en mapa territorial GIS (visitas georreferenciadas provincia Manabí)</td>
-        <td class="text-center">90</td>
+        <td class="text-center">30</td>
         <td class="text-center">días</td>
-        <td class="text-right">5,50</td>
+        <td class="text-right">16,50</td>
         <td class="text-right">495,00</td>
       </tr>
 
@@ -215,7 +298,7 @@
       </tr>
       <tr>
         <td class="text-center">3.1</td>
-        <td>Servicio de procesamiento de un (1) corte de extracto EPA EP y un (1) corte archivo RUAA Manabí; generación de reporte de cruce (matches, brechas de cobro, desalineaciones) y una (1) actualización si la entidad entrega archivos corregidos dentro de los primeros 45 días del piloto</td>
+        <td>Servicio de procesamiento de un (1) corte de extracto EPA EP y un (1) corte archivo RUAA Manabí; generación de reporte de cruce (matches, brechas de cobro, desalineaciones) y una (1) actualización si la entidad entrega archivos corregidos dentro del periodo del piloto</td>
         <td class="text-center">1</td>
         <td class="text-center">gbl</td>
         <td class="text-right">1.420,00</td>
@@ -224,9 +307,9 @@
       <tr>
         <td class="text-center">3.2</td>
         <td>Servicio de tablero web de solo lectura (módulo análisis comercial RUAA/EPA) para personal autorizado, vigente durante el piloto</td>
-        <td class="text-center">90</td>
+        <td class="text-center">30</td>
         <td class="text-center">días</td>
-        <td class="text-right">4,80</td>
+        <td class="text-right">14,40</td>
         <td class="text-right">432,00</td>
       </tr>
 
@@ -248,9 +331,9 @@
       <tr>
         <td class="text-center">5.1</td>
         <td>Servicio de soporte técnico durante el piloto (canal correo/ticket; respuesta máx. 48 h hábiles incidentes críticos, 5 días hábiles menores) y mantenimiento correctivo del software dentro del alcance</td>
-        <td class="text-center">90</td>
+        <td class="text-center">30</td>
         <td class="text-center">días</td>
-        <td class="text-right">6,80</td>
+        <td class="text-right">20,40</td>
         <td class="text-right">612,00</td>
       </tr>
       <tr>
@@ -271,15 +354,15 @@
       </tr>
 
       <tr class="category-row">
-        <td colspan="6">6. LICENCIA DE USO DEL SOFTWARE (BIEN INTANGIBLE)</td>
+        <td colspan="6">6. SERVICIO DE ACCESO A PLATAFORMA TECNOLÓGICA (SaaS)</td>
       </tr>
       <tr>
         <td class="text-center">6.1</td>
-        <td>Licencia de uso no exclusiva de la plataforma EPIM (app móvil, portal, API y módulos del piloto) a favor de la EPA Manabí, vigencia igual al periodo del piloto</td>
+        <td>Servicio de acceso y uso del entorno tecnológico EPIM (app móvil, portal, API y módulos del piloto) a favor de la EPA Manabí, vigencia igual al periodo del piloto</td>
         <td class="text-center">1</td>
         <td class="text-center">gbl</td>
-        <td class="text-right">1.248,00</td>
-        <td class="text-right">1.248,00</td>
+        <td class="text-right">1.243,00</td>
+        <td class="text-right">1.243,00</td>
       </tr>
 
       <tr class="total-row">
@@ -298,37 +381,40 @@
   </table>
 
   <div class="note-box">
-    <strong>Nota presupuestaria:</strong> El presupuesto referencial de ínfima cuantía se fija en la base imponible USD 9.950,00 (máximo USD 10.000,00 según certificación de la entidad). Las proformas de proveedores no podrán superar dicho subtotal. Los ítems son referenciales; la entidad seleccionará la mejor relación costo–beneficio conforme a la normativa vigente.
+    <strong>Nota presupuestaria:</strong> El presupuesto referencial de ínfima cuantía se fija en la base imponible USD 9.950,00 (máximo legal USD 10.000,00 según certificación de la entidad). Las proformas de proveedores no podrán superar dicho subtotal. Los ítems son referenciales; la entidad seleccionará la mejor relación costo–beneficio conforme a la normativa vigente del SERCOP.
   </div>
 
   <div class="terms-box">
     <div class="section-title">3. CONDICIONES COMERCIALES Y DE ENTREGA</div>
     <ol>
-      <li><strong>Forma de pago:</strong> 100% contra entrega, previo informe de conformidad emitido por el Administrador de Contrato y suscripción del Acta Entrega-Recepción Definitiva, una vez recibidos los entregables mínimos (plataforma operativa, reporte RUAA–EPA, tablero, capacitación, exportación de datos y acta de cierre).</li>
-      <li><strong>Garantía técnica:</strong> Mínimo noventa (90) días calendario a partir del acta de cierre para corrección de defectos atribuibles al software, dentro del alcance contratado (sin nuevos desarrollos ni integración con CRM nacional).</li>
-      <li><strong>Lugar de prestación:</strong> Servicio principal en modalidad remota; capacitación en sede EPA Manabí o virtual; operación de campo en territorio de la provincia de Manabí (dispositivos y conectividad a cargo de la entidad).</li>
-      <li><strong>Exclusiones:</strong> No incluye hardware, sustitución del sistema nacional de facturación/CRM, facturación masiva en producción, ni integración productiva bidireccional con sistemas corporativos.</li>
-      <li><strong>Confidencialidad:</strong> Toda información de abonados, cuentas y archivos RUAA/EPA es confidencial; los datos son propiedad de la entidad contratante.</li>
-      <li><strong>Entregables de aceptación:</strong> Criterios detallados en las especificaciones técnicas anexas al expediente de contratación.</li>
+      <li><strong>Forma de pago:</strong> 100% en una sola entrega al finalizar los 30 días calendario, previo informe de conformidad favorable emitido por el Administrador de Contrato y suscripción del Acta Entrega-Recepción Definitiva, una vez recibidos los entregables mínimos del piloto (plataforma desplegada, reporte de cruce RUAA–EPA, acceso al tablero, capacitación realizada, exportación de datos y acta de cierre).</li>
+      <li><strong>Garantía técnica:</strong> Un (1) año (365 días calendario) a partir de la firma del acta de cierre definitiva para soporte técnico y corrección de defectos atribuibles al software, dentro del alcance contratado (sin nuevos desarrollos ni integración con CRM nacional).</li>
+      <li><strong>Lugar de prestación:</strong> Servicio principal en modalidad remota (cloud); capacitación presencial en sede EPA Manabí o virtual; operación de campo en territorio de la provincia de Manabí (dispositivos móviles y conectividad a cargo de la entidad).</li>
+      <li><strong>Exclusiones técnicas:</strong> No incluye provisión de hardware, sustitución del sistema comercial corporativo de la EPA, facturación masiva en producción, ni desarrollos de integración bidireccional no contemplados.</li>
+      <li><strong>Confidencialidad y propiedad de los datos:</strong> Toda información de abonados, concesiones y archivos RUAA/EPA es de carácter estrictamente confidencial. Los datos generados en el piloto son de exclusiva propiedad de la Empresa Pública del Agua EPA EP.</li>
     </ol>
   </div>
 
   <table class="signatures-table">
     <tr>
       <td>
-        <div class="signature-line"></div>
-        <strong>ELABORADO POR</strong><br>
-        Unidad Requirente / Gerencia Manabí<br>
-        CI: ____________________
+        <div class="signature-card">
+          <strong>ELABORADO POR</strong>
+          <span>Unidad Requirente / Gerencia de Gestión de Cuenca y Recaudación (Manabí)</span><br>
+          <span style="font-size: 10.5px;">CI: ____________________</span>
+        </div>
       </td>
       <td>
-        <div class="signature-line"></div>
-        <strong>REVISADO Y APROBADO POR</strong><br>
-        Administrador de Contrato / Máxima Autoridad delegada<br>
-        EMPRESA PÚBLICA DEL AGUA - EPA EP
+        <div class="signature-card">
+          <strong>REVISADO Y APROBADO POR</strong>
+          <span>Administrador de Contrato / Máxima Autoridad delegada</span><br>
+          <span style="font-size: 10.5px; font-weight: 600;">EMPRESA PÚBLICA DEL AGUA - EPA EP</span>
+        </div>
       </td>
     </tr>
   </table>
+
+</div>
 
 </body>
 </html>

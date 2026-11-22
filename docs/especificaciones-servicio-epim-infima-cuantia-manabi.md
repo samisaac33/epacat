@@ -2,7 +2,9 @@
 
 **Documento tipo:** especificaciones técnicas / términos de referencia de **servicio** (y, de ser pertinente, **bien** intangible en licencia), para contratación por **ínfima cuantía**.
 
-**Entidad contratante:** Empresa Pública del Agua — Manabí (EPA Manabí / EPA EP, según denominación institucional).
+**Entidad contratante:** Empresa Pública del Agua — Manabí (EPA Manabí / EPA EP), unidad requirente: **Gerencia de Gestión de Cuenca y Recaudación (Manabí)**.
+
+**Versión vigente del presupuesto / TDR:** [`presupuesto-referencial-epim-infima-cuantia-manabi.html`](presupuesto-referencial-epim-infima-cuantia-manabi.html) — piloto **30 días calendario**, subtotal USD 9.950,00. Este Markdown es anexo de especificaciones; si hay divergencia de plazo o ítems, prevalece el HTML aprobado por la entidad.
 
 **Presupuesto referencial máximo:** USD 10.000,00 (diez mil dólares de los Estados Unidos de América), **más IVA** si aplica. El proveedor cotizará en proforma sin superar dicho valor referencial.
 
