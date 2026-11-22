@@ -35,6 +35,7 @@ function buildPrompt(slide, brand) {
   const accentWords = slide.headline?.filter((p) => p.accent).map((p) => p.text.trim()) ?? [];
   const headlineFull = headlineToString(slide.headline ?? []);
   const bullets = slide.bullets?.map((b) => `• ${b}`).join('\n') ?? '';
+  const footerLine = slide.footer ?? brand.unit;
   const visualSide = slide.visualSide === 'left' ? 'LEFT' : 'RIGHT';
   const textSide = visualSide === 'LEFT' ? 'RIGHT' : 'LEFT';
 
@@ -42,16 +43,13 @@ function buildPrompt(slide, brand) {
 
 Typography: bold geometric sans-serif, large headline, small yellow-cyan label on top (use accent ${brand.accent} for highlighted words: ${accentWords.join(', ') || 'key phrase'}).
 
-Render ALL of the following Spanish text LEGIBLY and EXACTLY on the text panel:
+Render ALL of the following Spanish text LEGIBLY and EXACTLY on the text panel. Do NOT show meta words like Footer, Subtitle, or Label — only the real content:
 ---
-[Label, small caps accent color]
 ${slide.label ?? ''}
 
-[Headline, large]
 ${headlineFull}
 
-${slide.subtitle ? `[Subtitle]\n${slide.subtitle}\n` : ''}${bullets ? `[Bullets, white, accent dot bullets]\n${bullets}\n` : ''}[Footer small]
-${slide.footer ?? brand.unit}
+${slide.subtitle ? `${slide.subtitle}\n` : ''}${bullets ? `${bullets}\n` : ''}${footerLine}
 ---
 
 ${slide.logoNote ? slide.logoNote + '. ' : ''}Entity: ${brand.entity}. NOT political campaign, no candidate faces, no election slogans, no purple — only EPA palette navy + cyan ${brand.accent}.
