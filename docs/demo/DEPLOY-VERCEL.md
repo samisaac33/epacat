@@ -6,8 +6,9 @@ Proyecto existente: **epacat-web** → alias [https://epim-web.vercel.app](https
 
 | Variable | Valor |
 |----------|--------|
-| `NEXT_PUBLIC_API_URL` | `https://api.su-dominio.gob.ec` (API en su VM) |
-| `JWT_SECRET` | **Idéntico** al de `.env.prod` en la VM |
+| `NEXT_PUBLIC_API_URL` | Opcional. **Omitir** para usar el BFF demo `/api/epim` en el mismo dominio (login, mapa, validación sin VM). Si tiene API en VM: `https://api.su-dominio.gob.ec` |
+| `JWT_SECRET` | Obligatorio para BFF demo o API VM (**mismo valor** en ambos si usa VM) |
+| `EPIM_UPSTREAM_API_URL` | Solo servidor: proxy BFF → API Nest en VM (alternativa a `NEXT_PUBLIC_API_URL` directo) |
 
 Opcional:
 

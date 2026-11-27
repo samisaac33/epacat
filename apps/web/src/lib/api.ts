@@ -1,4 +1,16 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
+function resolveApiBase(): string {
+  const configured = process.env.NEXT_PUBLIC_API_URL?.trim();
+  if (configured && configured !== 'disabled') {
+    return configured.replace(/\/$/, '');
+  }
+  if (typeof window !== 'undefined') {
+    return `${window.location.origin}/api/epim`;
+  }
+  const upstream = process.env.EPIM_UPSTREAM_API_URL?.replace(/\/$/, '');
+  return upstream ?? 'http://localhost:3001';
+}
+
+const API_URL = resolveApiBase();
 
 export function getToken(): string | null {
   if (typeof window === 'undefined') return null;
@@ -36,7 +48,7 @@ async function parseJsonResponse<T>(res: Response): Promise<T> {
 function wrapNetworkError(err: unknown): Error {
   if (err instanceof TypeError && /fetch/i.test(err.message)) {
     return new Error(
-      'No se pudo conectar con la API. Compruebe NEXT_PUBLIC_API_URL en producción; el módulo Comercial usa rutas /api/comercial en este sitio.',
+      'No se pudo conectar con la API. En Vercel sin VM use el BFF /api/epim; o configure NEXT_PUBLIC_API_URL.',
     );
   }
   if (err instanceof Error) return err;
