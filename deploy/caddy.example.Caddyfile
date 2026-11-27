@@ -1,0 +1,7 @@
+# Ejemplo Caddy en la VM (TLS automático)
+# Reemplace api.su-dominio.gob.ec
+
+api.su-dominio.gob.ec {
+    reverse_proxy 127.0.0.1:3001
+    encode gzip
+}

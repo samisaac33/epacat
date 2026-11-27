@@ -15,6 +15,9 @@
     "db:generate": "turbo run db:generate",
     "db:migrate": "npm run db:migrate -w @epacat/database",
     "db:seed": "npm run db:seed -w @epacat/database",
+    "db:seed:demo": "npm run db:seed:demo -w @epacat/database",
+    "docker:prod:up": "docker compose --env-file .env.prod -f docker-compose.prod.yml up -d --build",
+    "docker:prod:seed": "docker compose --env-file .env.prod -f docker-compose.prod.yml --profile tools run --rm seed",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
   },

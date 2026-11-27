@@ -94,6 +94,20 @@ El paquete `@epacat/pacifico` incluye un cliente stub para pruebas de integraci�
 
 Sin `RESEND_API_KEY` el sistema opera en modo stub (registra en `CobranzaEmail` y log en consola).
 
+## Demo en producción (gerencia EPA)
+
+Guía completa: [`docs/demo/`](docs/demo/)
+
+| Documento | Contenido |
+|-----------|-----------|
+| [DEPLOY-VM.md](docs/demo/DEPLOY-VM.md) | API + PostGIS en VM (Docker) |
+| [DEPLOY-VERCEL.md](docs/demo/DEPLOY-VERCEL.md) | Variables y acceso web |
+| [DEMO-MOBILE.md](docs/demo/DEMO-MOBILE.md) | Expo Go contra API pública |
+| [GUION-FUNCIONARIO.md](docs/demo/GUION-FUNCIONARIO.md) | Presentación 15–20 min |
+| [CHECKLIST-24H.md](docs/demo/CHECKLIST-24H.md) | Pre-reunión |
+
+Datos demo: `npm run db:seed:demo` tras migraciones.
+
 ## Despliegue web (Vercel)
 
 Variables recomendadas en el proyecto **web** (`apps/web`):

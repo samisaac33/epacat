@@ -32,6 +32,9 @@ export function HeroSection() {
         </p>
         <div className="flex flex-wrap gap-4">
           <Button variant="default" size="lg" asChild>
+            <Link href="/comercial">{hero.ctaCommercial}</Link>
+          </Button>
+          <Button variant="outline" size="lg" asChild>
             <Link href="/login">
               <LogIn className="h-5 w-5" aria-hidden />
               {hero.ctaPrimary}

@@ -39,11 +39,13 @@ export const dossier = {
       title: 'Control del servicio de agua, de la visita en campo al cobro',
       subtitle:
         'Un solo sistema para registrar abonados y lecturas en territorio, revisar la información en oficina, facturar con respaldo y cobrar a través de Banco Pacífico.',
-      ctaPrimary: 'Acceso al portal de administración',
+      ctaPrimary: 'Acceso gerencia (demo)',
+      ctaCommercial: 'Ver tablero RUAA–EPA',
+      ctaCommercialHref: '/comercial',
       ctaSecondary: 'Ver cómo funciona',
       ctaSecondaryHref: '#flujo',
       pilotNote:
-        'Versión piloto para demostración. Aún no está conectada a los sistemas de producción de la institución.',
+        'Piloto demostrativo para la Gerencia de Cuenca y Recaudación (Manabí). Complemento al sistema comercial nacional; no sustituye facturación ni CRM.',
     },
     scope: {
       id: 'alcance',

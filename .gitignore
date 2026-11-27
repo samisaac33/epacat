@@ -6,8 +6,11 @@ dist
 *.log
 .env
 .env.local
+.env.prod
 storage/uploads/*
 !storage/uploads/.gitkeep
+!storage/uploads/demo/
+!storage/uploads/demo/*.jpg
 coverage
 .DS_Store
 

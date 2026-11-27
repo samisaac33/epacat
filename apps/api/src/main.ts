@@ -4,8 +4,12 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const corsOrigins = (process.env.CORS_ORIGINS ?? 'http://localhost:3000').split(',');
-  app.enableCors({ origin: corsOrigins, credentials: true });
+  const rawCors = process.env.CORS_ORIGINS ?? 'http://localhost:3000';
+  const corsOrigin =
+    rawCors.trim() === '*'
+      ? true
+      : rawCors.split(',').map((o) => o.trim()).filter(Boolean);
+  app.enableCors({ origin: corsOrigin, credentials: true });
 
   const config = new DocumentBuilder()
     .setTitle('EPIM API')

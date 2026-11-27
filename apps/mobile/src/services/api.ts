@@ -15,6 +15,10 @@ export async function clearToken() {
   await SecureStore.deleteItemAsync(TOKEN_KEY);
 }
 
+function connectionHint(): string {
+  return `No se puede conectar con la API (${API_URL}). Revise EXPO_PUBLIC_API_URL, red y certificado HTTPS.`;
+}
+
 export async function apiFetch<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = await getToken();
   const headers: Record<string, string> = {
@@ -25,10 +29,15 @@ export async function apiFetch<T>(path: string, options: RequestInit = {}): Prom
   }
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
-  const res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  let res: Response;
+  try {
+    res = await fetch(`${API_URL}${path}`, { ...options, headers });
+  } catch {
+    throw new Error(connectionHint());
+  }
   if (!res.ok) {
     const err = await res.json().catch(() => ({ message: res.statusText }));
-    throw new Error(err.message ?? 'Error de API');
+    throw new Error(err.message ?? `Error de API (${res.status})`);
   }
   return res.json();
 }
