@@ -10,10 +10,12 @@
 
 ## Smoke sin VM (solo web)
 
-Mientras la API no esté pública:
+**Modo Vercel (sin VM):** el BFF `/api/epim` habilita login, mapa y validación con datos demo.
 
-- `https://epim-web.vercel.app/comercial` — tablero snapshot (funciona solo con Vercel).
-- Login y módulos dashboard — requieren API VM.
+- `https://epim-web.vercel.app/comercial` — tablero snapshot.
+- `https://epim-web.vercel.app/login` → `/map` y `/validation`.
+
+**Con VM:** configure `NEXT_PUBLIC_API_URL` o `EPIM_UPSTREAM_API_URL` y el mismo `JWT_SECRET`.
 
 ## Capturas de respaldo
 
