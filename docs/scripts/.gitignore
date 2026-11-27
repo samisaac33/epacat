@@ -1,0 +1,6 @@
+credentials.json
+token.json
+node_modules/
+../deck-images/*.jpg
+!../deck-images/manifest.json
+../pitch-slides/*.jpg

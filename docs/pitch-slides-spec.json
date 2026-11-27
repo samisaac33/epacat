@@ -1,0 +1,125 @@
+{
+  "model": "gemini-nano-banana-2.1",
+  "aspectRatio": "16:9",
+  "referenceStyleImage": "../assets/pitch-style-reference.jpg",
+  "brand": {
+    "entity": "Empresa Pública del Agua — EPA EP",
+    "unit": "Gerencia de Gestión de Cuenca y Recaudación (Manabí)",
+    "logoPath": "../assets/epa-logo.jpg",
+    "primary": "#0f2942",
+    "accent": "#0284c7",
+    "accentLight": "#38bdf8",
+    "textOnDark": "#ffffff",
+    "note": "NO estilo electoral ni candidatos; pitch institucional técnico."
+  },
+  "slides": [
+    {
+      "id": "01-cover",
+      "file": "pitch-01-cover.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "PROPUESTA PILOTO · MANABÍ",
+      "headline": [
+        { "text": "GESTIÓN ", "accent": false },
+        { "text": "INTELIGENTE", "accent": true },
+        { "text": " EPIM", "accent": false }
+      ],
+      "subtitle": "Más recaudación y regularización con evidencia en territorio",
+      "footer": "Complemento al sistema comercial nacional",
+      "visual": "Vector illustration: technician with tablet inspecting rural water intake in Manabí, GPS pin and water drop icons, clean modern not sci-fi",
+      "useBrandLogo": true,
+      "logoNote": "Top right: use the supplied official logo image exactly, on white or light band"
+    },
+    {
+      "id": "02-problema",
+      "file": "pitch-02-problema.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "EL RETO",
+      "headline": [
+        { "text": "RECAUDACIÓN BAJA ", "accent": false },
+        { "text": "EN MANABÍ", "accent": true }
+      ],
+      "bullets": [
+        "Cuentas en extracto sin respaldo RUAA vigente",
+        "Usuarios activos desalineados o sin cruce",
+        "Sin lista priorizada ni evidencia de campo"
+      ],
+      "visual": "Flat illustration worried manager at desk with scattered papers and leaking pipe metaphor, cyan and navy palette"
+    },
+    {
+      "id": "03-solucion",
+      "file": "pitch-03-solucion.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "LA SOLUCIÓN",
+      "headline": [
+        { "text": "Tu brigada ", "accent": false },
+        { "text": "registra en campo", "accent": true },
+        { "text": " aunque no haya señal", "accent": false }
+      ],
+      "bullets": [
+        "App offline con foto, GPS y lectura",
+        "Oficina valida antes de decidir",
+        "Sincronización cuando vuelve la red"
+      ],
+      "visual": "Smartphone mockup showing field inspection form and map, realistic product pitch style"
+    },
+    {
+      "id": "04-cruce",
+      "file": "pitch-04-cruce.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "RUAA · EPA",
+      "headline": [
+        { "text": "Lista priorizada para ", "accent": false },
+        { "text": "cobrar y regularizar", "accent": true }
+      ],
+      "bullets": [
+        "Debido vs cobro asumido en USD",
+        "Desalineaciones y sin cruce",
+        "Tablero web solo lectura"
+      ],
+      "visual": "Dashboard mockup with charts and table rows, institutional analytics UI navy and cyan"
+    },
+    {
+      "id": "05-flujo",
+      "file": "pitch-05-flujo.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "CÓMO FUNCIONA",
+      "headline": [
+        { "text": "De la inspección a la ", "accent": false },
+        { "text": "acción en el CRM", "accent": true }
+      ],
+      "bullets": [
+        "01 Inspección en territorio",
+        "02 Validación institucional",
+        "03 Cruce y tablero (solo lectura)",
+        "04 Priorización para el sistema comercial"
+      ],
+      "visual": "Four-step horizontal infographic with arrows; icon labels ONLY those four step names in Spanish — no repeat of mobile offline UI, no calendar dates, no prices",
+      "useBrandLogo": true,
+      "logoNote": "Top right: official logo image exactly as supplied"
+    },
+    {
+      "id": "06-cierre",
+      "file": "pitch-06-cierre.jpg",
+      "layout": "split",
+      "visualSide": "right",
+      "label": "CIERRE",
+      "headline": [
+        { "text": "Complemento ", "accent": true },
+        { "text": "territorial al sistema comercial", "accent": false }
+      ],
+      "bullets": [
+        "No sustituye la facturación nacional",
+        "Evidencia lista para expedientes y priorización",
+        "La gerencia define ampliación o integración"
+      ],
+      "visual": "Gerencia reviewing large wall monitor with dashboard KPIs and map, small EPA team in modern office Manabí, no field technician duplicate, institutional",
+      "useBrandLogo": true,
+      "logoNote": "Top right: official logo image exactly as supplied"
+    }
+  ]
+}

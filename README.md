@@ -127,6 +127,16 @@ Tras cambiar `NEXT_PUBLIC_*`, redeployar la web (se inlined en el build).
 2. El resto del dashboard (validación, facturación, etc.) sigue pidiendo sesión vía API Nest (`NEXT_PUBLIC_API_URL` + login).
 3. **Build command** en Vercel: `npm run build` desde `apps/web` (o monorepo con filtro `@epacat/web`), no solo `next build` — copia el snapshot a `apps/web/data/` para la función serverless.
 
+## Contratación pública (plantilla)
+
+- Especificaciones técnicas (Markdown): [`docs/especificaciones-servicio-epim-infima-cuantia-manabi.md`](docs/especificaciones-servicio-epim-infima-cuantia-manabi.md)
+- Presupuesto referencial / TDR (HTML imprimible): [`docs/presupuesto-referencial-epim-infima-cuantia-manabi.html`](docs/presupuesto-referencial-epim-infima-cuantia-manabi.html)
+- Aviso público SERCOP (plantilla): [`docs/aviso-publico-sercop-epim-infima-manabi.html`](docs/aviso-publico-sercop-epim-infima-manabi.html)
+- Anexo entregables mínimos — piloto 30 días: [`docs/anexo-entregables-minimos-epim-piloto-30d.html`](docs/anexo-entregables-minimos-epim-piloto-30d.html)
+- Deck gerencia (spec JSON + Google Slides): [`docs/GOOGLE_SLIDES_DECK.md`](docs/GOOGLE_SLIDES_DECK.md) · [`docs/deck-epim-piloto-spec.json`](docs/deck-epim-piloto-spec.json)
+
+Revisión obligatoria por compras y asesoría jurídica de la EPA antes de publicar.
+
 ## Scripts
 
 | Script | Descripción |
