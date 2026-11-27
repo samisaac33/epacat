@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { useQuery } from '@tanstack/react-query';
 import type { GeoJsonFeatureCollection } from '@epacat/shared';
 import { apiFetch } from '@/lib/api';
+import { MANABI_VIEW_BBOX } from '@/lib/manabi-bbox';
 
 const VisitaMap = dynamic(() => import('@/components/VisitaMap').then((m) => m.VisitaMap), {
   ssr: false,
@@ -11,11 +12,10 @@ const VisitaMap = dynamic(() => import('@/components/VisitaMap').then((m) => m.V
 });
 
 export default function MapPage() {
-  const bbox = '-80.75,-0.98,-80.68,-0.92';
   const { data, isLoading, error } = useQuery({
-    queryKey: ['gis-visitas', bbox],
+    queryKey: ['gis-visitas', MANABI_VIEW_BBOX],
     queryFn: () =>
-      apiFetch<GeoJsonFeatureCollection>(`/gis/visitas?bbox=${bbox}`),
+      apiFetch<GeoJsonFeatureCollection>(`/gis/visitas?bbox=${encodeURIComponent(MANABI_VIEW_BBOX)}`),
   });
 
   return (
