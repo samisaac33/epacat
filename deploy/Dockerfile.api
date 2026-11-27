@@ -1,0 +1,35 @@
+# Build desde la raíz: docker build -f deploy/Dockerfile.api -t epim-api .
+FROM node:20-bookworm-slim AS builder
+WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends openssl ca-certificates && rm -rf /var/lib/apt/lists/*
+COPY package.json package-lock.json turbo.json ./
+COPY apps/api ./apps/api
+COPY packages ./packages
+RUN npm ci
+RUN npm run db:generate
+RUN npm run build -w @epacat/shared \
+ && npm run build -w @epacat/database \
+ && npm run build -w @epacat/comercial \
+ && npm run build -w @epacat/pacifico \
+ && npm run build -w @epacat/api
+
+FROM node:20-bookworm-slim AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV API_PORT=3001
+ENV STORAGE_PATH=/data/uploads
+RUN apt-get update && apt-get install -y --no-install-recommends openssl ca-certificates && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /data/uploads && chown -R node:node /data/uploads
+USER node
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --from=builder --chown=node:node /app/apps/api/dist ./apps/api/dist
+COPY --from=builder --chown=node:node /app/apps/api/package.json ./apps/api/package.json
+COPY --from=builder --chown=node:node /app/packages ./packages
+COPY --from=builder --chown=node:node /app/package.json ./package.json
+COPY --chown=node:node storage/uploads/demo ./storage/uploads/demo
+COPY --chown=node:node deploy/entrypoint.api.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+EXPOSE 3001
+HEALTHCHECK --interval=15s --timeout=5s --start-period=45s --retries=5 \
+  CMD node -e "require('http').get('http://127.0.0.1:3001/',(r)=>{process.exit(r.statusCode===200?0:1)}).on('error',()=>process.exit(1))"
+ENTRYPOINT ["./entrypoint.sh"]

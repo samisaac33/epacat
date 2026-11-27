@@ -1,0 +1,78 @@
+# Producción demo: PostGIS + API (sin exponer Postgres a Internet).
+# Uso: copiar deploy/.env.prod.example → .env.prod y docker compose --env-file .env.prod -f docker-compose.prod.yml up -d
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: epim-postgres-prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-epacat}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:-epacat_db}
+    volumes:
+      - epim_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-epacat} -d ${POSTGRES_DB:-epacat_db}']
+      interval: 10s
+      timeout: 5s
+      retries: 8
+    networks:
+      - epim_internal
+
+  api:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    container_name: epim-api-prod
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-epacat}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-epacat_db}
+      API_PORT: '3001'
+      STORAGE_PATH: /data/uploads
+    volumes:
+      - epim_uploads:/data/uploads
+    ports:
+      - '${API_BIND:-127.0.0.1:3001}:3001'
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - epim_internal
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -q -O - http://127.0.0.1:3001/ || exit 1']
+      interval: 15s
+      timeout: 5s
+      retries: 6
+      start_period: 40s
+
+  # Ejecutar una vez: migraciones ya en entrypoint; seed manual.
+  seed:
+    profiles: ['tools']
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    env_file:
+      - .env.prod
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-epacat}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-epacat_db}
+    entrypoint: ['sh', '-c']
+    command:
+      - |
+        cd /app/packages/database &&
+        npx tsx prisma/seed.ts &&
+        npx tsx prisma/seed-demo.ts
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - epim_internal
+
+volumes:
+  epim_pgdata:
+  epim_uploads:
+
+networks:
+  epim_internal:
+    driver: bridge
